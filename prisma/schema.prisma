@@ -1,0 +1,100 @@
+generator client {
+  provider     = "prisma-client-js"
+  output       = "../src/common/prisma/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model food {
+  foodId    Int        @id @default(autoincrement())
+  foodname  String?    @db.VarChar(100)
+  image     String?    @db.VarChar(255)
+  price     Float?     @db.Float
+  desc      String?    @db.VarChar(255)
+  typeId    Int?
+  food_type food_type? @relation(fields: [typeId], references: [typeId], onDelete: NoAction, onUpdate: NoAction, map: "food_ibfk_1")
+  order     order[]    @ignore
+  sub_food  sub_food[]
+
+  @@index([typeId], map: "typeId")
+}
+
+model food_type {
+  typeId   Int     @id @default(autoincrement())
+  typename String? @db.VarChar(100)
+  food     food[]
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model like_res {
+  userId     Int?
+  resId      Int?
+  datelike   DateTime?   @db.DateTime(0)
+  users      users?      @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "like_res_ibfk_1")
+  restaurant restaurant? @relation(fields: [resId], references: [resId], onDelete: NoAction, onUpdate: NoAction, map: "like_res_ibfk_2")
+
+  @@index([resId], map: "resId")
+  @@index([userId], map: "userId")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model order {
+  userId   Int?
+  foodId   Int?
+  amount   Int?
+  code     String? @db.VarChar(50)
+  arrsubId String? @db.VarChar(100)
+  users    users?  @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "order_ibfk_1")
+  food     food?   @relation(fields: [foodId], references: [foodId], onDelete: NoAction, onUpdate: NoAction, map: "order_ibfk_2")
+
+  @@index([foodId], map: "foodId")
+  @@index([userId], map: "userId")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model rate_res {
+  userId     Int?
+  resId      Int?
+  amount     Int?
+  daterate   DateTime?   @db.DateTime(0)
+  users      users?      @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "rate_res_ibfk_1")
+  restaurant restaurant? @relation(fields: [resId], references: [resId], onDelete: NoAction, onUpdate: NoAction, map: "rate_res_ibfk_2")
+
+  @@index([resId], map: "resId")
+  @@index([userId], map: "userId")
+  @@ignore
+}
+
+model restaurant {
+  resId    Int        @id @default(autoincrement())
+  resname  String?    @db.VarChar(100)
+  image    String?    @db.VarChar(255)
+  desc     String?    @db.VarChar(255)
+  like_res like_res[] @ignore
+  rate_res rate_res[] @ignore
+}
+
+model sub_food {
+  subId    Int     @id @default(autoincrement())
+  subname  String? @db.VarChar(100)
+  subprice Float?  @db.Float
+  foodId   Int?
+  food     food?   @relation(fields: [foodId], references: [foodId], onDelete: NoAction, onUpdate: NoAction, map: "sub_food_ibfk_1")
+
+  @@index([foodId], map: "foodId")
+}
+
+model users {
+  userId   Int        @id @default(autoincrement())
+  fullname String?    @db.VarChar(100)
+  email    String?    @db.VarChar(100)
+  password String?    @db.VarChar(100)
+  like_res like_res[] @ignore
+  order    order[]    @ignore
+  rate_res rate_res[] @ignore
+}
