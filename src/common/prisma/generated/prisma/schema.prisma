@@ -16,7 +16,7 @@ model food {
   desc      String?    @db.VarChar(255)
   typeId    Int?
   food_type food_type? @relation(fields: [typeId], references: [typeId], onDelete: NoAction, onUpdate: NoAction, map: "food_ibfk_1")
-  order     order[]    @ignore
+  orders    orders[]
   sub_food  sub_food[]
 
   @@index([typeId], map: "typeId")
@@ -30,53 +30,38 @@ model food_type {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model like_res {
-  userId     Int?
-  resId      Int?
-  datelike   DateTime?   @db.DateTime(0)
-  users      users?      @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "like_res_ibfk_1")
-  restaurant restaurant? @relation(fields: [resId], references: [resId], onDelete: NoAction, onUpdate: NoAction, map: "like_res_ibfk_2")
+  userId     Int
+  resId      Int
+  datelike   DateTime?  @db.DateTime(0)
+  isLike     Boolean?   @default(true)
+  users      users      @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "like_res_ibfk_1")
+  restaurant restaurant @relation(fields: [resId], references: [resId], onDelete: NoAction, onUpdate: NoAction, map: "like_res_ibfk_2")
 
+  @@id([userId, resId])
   @@index([resId], map: "resId")
-  @@index([userId], map: "userId")
-  @@ignore
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model order {
-  userId   Int?
-  foodId   Int?
-  amount   Int?
-  code     String? @db.VarChar(50)
-  arrsubId String? @db.VarChar(100)
-  users    users?  @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "order_ibfk_1")
-  food     food?   @relation(fields: [foodId], references: [foodId], onDelete: NoAction, onUpdate: NoAction, map: "order_ibfk_2")
-
-  @@index([foodId], map: "foodId")
-  @@index([userId], map: "userId")
-  @@ignore
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model rate_res {
-  userId     Int?
-  resId      Int?
+  userId     Int
+  resId      Int
   amount     Int?
-  daterate   DateTime?   @db.DateTime(0)
-  users      users?      @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "rate_res_ibfk_1")
-  restaurant restaurant? @relation(fields: [resId], references: [resId], onDelete: NoAction, onUpdate: NoAction, map: "rate_res_ibfk_2")
+  daterate   DateTime?  @db.DateTime(0)
+  users      users      @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "rate_res_ibfk_1")
+  restaurant restaurant @relation(fields: [resId], references: [resId], onDelete: NoAction, onUpdate: NoAction, map: "rate_res_ibfk_2")
 
+  @@id([userId, resId])
   @@index([resId], map: "resId")
-  @@index([userId], map: "userId")
-  @@ignore
 }
 
 model restaurant {
-  resId    Int        @id @default(autoincrement())
-  resname  String?    @db.VarChar(100)
-  image    String?    @db.VarChar(255)
-  desc     String?    @db.VarChar(255)
-  like_res like_res[] @ignore
-  rate_res rate_res[] @ignore
+  resId      Int          @id @default(autoincrement())
+  resname    String?      @db.VarChar(100)
+  image      String?      @db.VarChar(255)
+  desc       String?      @db.VarChar(255)
+  like_res   like_res[]
+  like_res_2 like_res_2[]
+  rate_res   rate_res[]
 }
 
 model sub_food {
@@ -90,11 +75,40 @@ model sub_food {
 }
 
 model users {
-  userId   Int        @id @default(autoincrement())
-  fullname String?    @db.VarChar(100)
-  email    String?    @db.VarChar(100)
-  password String?    @db.VarChar(100)
-  like_res like_res[] @ignore
-  order    order[]    @ignore
-  rate_res rate_res[] @ignore
+  userId     Int          @id @default(autoincrement())
+  fullname   String?      @db.VarChar(100)
+  email      String?      @db.VarChar(100)
+  password   String?      @db.VarChar(100)
+  like_res   like_res[]
+  like_res_2 like_res_2[]
+  orders     orders[]
+  rate_res   rate_res[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model orders {
+  orderId  Int     @id @default(autoincrement())
+  userId   Int?
+  foodId   Int?
+  amount   Int?
+  code     String? @db.VarChar(50)
+  arrsubId String? @db.VarChar(100)
+  users    users?  @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "orders_ibfk_1")
+  food     food?   @relation(fields: [foodId], references: [foodId], onDelete: NoAction, onUpdate: NoAction, map: "orders_ibfk_2")
+
+  @@index([foodId], map: "foodId")
+  @@index([userId], map: "userId")
+}
+
+model like_res_2 {
+  id         Int         @id @default(autoincrement())
+  userId     Int?
+  resId      Int?
+  datelike   DateTime?   @db.DateTime(0)
+  isLike     Boolean?    @default(true)
+  users      users?      @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "like_res_2_ibfk_1")
+  restaurant restaurant? @relation(fields: [resId], references: [resId], onDelete: NoAction, onUpdate: NoAction, map: "like_res_2_ibfk_2")
+
+  @@unique([userId, resId], map: "unique_user_res")
+  @@index([resId], map: "resId")
 }

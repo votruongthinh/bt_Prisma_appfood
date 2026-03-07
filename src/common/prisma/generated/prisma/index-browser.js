@@ -134,6 +134,20 @@ exports.Prisma.Food_typeScalarFieldEnum = {
   typename: 'typename'
 };
 
+exports.Prisma.Like_resScalarFieldEnum = {
+  userId: 'userId',
+  resId: 'resId',
+  datelike: 'datelike',
+  isLike: 'isLike'
+};
+
+exports.Prisma.Rate_resScalarFieldEnum = {
+  userId: 'userId',
+  resId: 'resId',
+  amount: 'amount',
+  daterate: 'daterate'
+};
+
 exports.Prisma.RestaurantScalarFieldEnum = {
   resId: 'resId',
   resname: 'resname',
@@ -153,6 +167,23 @@ exports.Prisma.UsersScalarFieldEnum = {
   fullname: 'fullname',
   email: 'email',
   password: 'password'
+};
+
+exports.Prisma.OrdersScalarFieldEnum = {
+  orderId: 'orderId',
+  userId: 'userId',
+  foodId: 'foodId',
+  amount: 'amount',
+  code: 'code',
+  arrsubId: 'arrsubId'
+};
+
+exports.Prisma.Like_res_2ScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  resId: 'resId',
+  datelike: 'datelike',
+  isLike: 'isLike'
 };
 
 exports.Prisma.SortOrder = {
@@ -191,13 +222,22 @@ exports.Prisma.usersOrderByRelevanceFieldEnum = {
   password: 'password'
 };
 
+exports.Prisma.ordersOrderByRelevanceFieldEnum = {
+  code: 'code',
+  arrsubId: 'arrsubId'
+};
+
 
 exports.Prisma.ModelName = {
   food: 'food',
   food_type: 'food_type',
+  like_res: 'like_res',
+  rate_res: 'rate_res',
   restaurant: 'restaurant',
   sub_food: 'sub_food',
-  users: 'users'
+  users: 'users',
+  orders: 'orders',
+  like_res_2: 'like_res_2'
 };
 
 /**

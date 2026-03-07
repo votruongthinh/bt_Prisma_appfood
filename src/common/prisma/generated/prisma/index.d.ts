@@ -24,6 +24,16 @@ export type food = $Result.DefaultSelection<Prisma.$foodPayload>
  */
 export type food_type = $Result.DefaultSelection<Prisma.$food_typePayload>
 /**
+ * Model like_res
+ * The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type like_res = $Result.DefaultSelection<Prisma.$like_resPayload>
+/**
+ * Model rate_res
+ * The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type rate_res = $Result.DefaultSelection<Prisma.$rate_resPayload>
+/**
  * Model restaurant
  * 
  */
@@ -38,6 +48,16 @@ export type sub_food = $Result.DefaultSelection<Prisma.$sub_foodPayload>
  * 
  */
 export type users = $Result.DefaultSelection<Prisma.$usersPayload>
+/**
+ * Model orders
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ */
+export type orders = $Result.DefaultSelection<Prisma.$ordersPayload>
+/**
+ * Model like_res_2
+ * 
+ */
+export type like_res_2 = $Result.DefaultSelection<Prisma.$like_res_2Payload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -181,6 +201,26 @@ export class PrismaClient<
   get food_type(): Prisma.food_typeDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.like_res`: Exposes CRUD operations for the **like_res** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Like_res
+    * const like_res = await prisma.like_res.findMany()
+    * ```
+    */
+  get like_res(): Prisma.like_resDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.rate_res`: Exposes CRUD operations for the **rate_res** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Rate_res
+    * const rate_res = await prisma.rate_res.findMany()
+    * ```
+    */
+  get rate_res(): Prisma.rate_resDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.restaurant`: Exposes CRUD operations for the **restaurant** model.
     * Example usage:
     * ```ts
@@ -209,6 +249,26 @@ export class PrismaClient<
     * ```
     */
   get users(): Prisma.usersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.orders`: Exposes CRUD operations for the **orders** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Orders
+    * const orders = await prisma.orders.findMany()
+    * ```
+    */
+  get orders(): Prisma.ordersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.like_res_2`: Exposes CRUD operations for the **like_res_2** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Like_res_2s
+    * const like_res_2s = await prisma.like_res_2.findMany()
+    * ```
+    */
+  get like_res_2(): Prisma.like_res_2Delegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -645,9 +705,13 @@ export namespace Prisma {
   export const ModelName: {
     food: 'food',
     food_type: 'food_type',
+    like_res: 'like_res',
+    rate_res: 'rate_res',
     restaurant: 'restaurant',
     sub_food: 'sub_food',
-    users: 'users'
+    users: 'users',
+    orders: 'orders',
+    like_res_2: 'like_res_2'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -663,7 +727,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "food" | "food_type" | "restaurant" | "sub_food" | "users"
+      modelProps: "food" | "food_type" | "like_res" | "rate_res" | "restaurant" | "sub_food" | "users" | "orders" | "like_res_2"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -796,6 +860,138 @@ export namespace Prisma {
           count: {
             args: Prisma.food_typeCountArgs<ExtArgs>
             result: $Utils.Optional<Food_typeCountAggregateOutputType> | number
+          }
+        }
+      }
+      like_res: {
+        payload: Prisma.$like_resPayload<ExtArgs>
+        fields: Prisma.like_resFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.like_resFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.like_resFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload>
+          }
+          findFirst: {
+            args: Prisma.like_resFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.like_resFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload>
+          }
+          findMany: {
+            args: Prisma.like_resFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload>[]
+          }
+          create: {
+            args: Prisma.like_resCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload>
+          }
+          createMany: {
+            args: Prisma.like_resCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.like_resDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload>
+          }
+          update: {
+            args: Prisma.like_resUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload>
+          }
+          deleteMany: {
+            args: Prisma.like_resDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.like_resUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.like_resUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_resPayload>
+          }
+          aggregate: {
+            args: Prisma.Like_resAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLike_res>
+          }
+          groupBy: {
+            args: Prisma.like_resGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Like_resGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.like_resCountArgs<ExtArgs>
+            result: $Utils.Optional<Like_resCountAggregateOutputType> | number
+          }
+        }
+      }
+      rate_res: {
+        payload: Prisma.$rate_resPayload<ExtArgs>
+        fields: Prisma.rate_resFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.rate_resFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.rate_resFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload>
+          }
+          findFirst: {
+            args: Prisma.rate_resFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.rate_resFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload>
+          }
+          findMany: {
+            args: Prisma.rate_resFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload>[]
+          }
+          create: {
+            args: Prisma.rate_resCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload>
+          }
+          createMany: {
+            args: Prisma.rate_resCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.rate_resDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload>
+          }
+          update: {
+            args: Prisma.rate_resUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload>
+          }
+          deleteMany: {
+            args: Prisma.rate_resDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.rate_resUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.rate_resUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rate_resPayload>
+          }
+          aggregate: {
+            args: Prisma.Rate_resAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRate_res>
+          }
+          groupBy: {
+            args: Prisma.rate_resGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Rate_resGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.rate_resCountArgs<ExtArgs>
+            result: $Utils.Optional<Rate_resCountAggregateOutputType> | number
           }
         }
       }
@@ -997,6 +1193,138 @@ export namespace Prisma {
           }
         }
       }
+      orders: {
+        payload: Prisma.$ordersPayload<ExtArgs>
+        fields: Prisma.ordersFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ordersFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ordersFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload>
+          }
+          findFirst: {
+            args: Prisma.ordersFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ordersFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload>
+          }
+          findMany: {
+            args: Prisma.ordersFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload>[]
+          }
+          create: {
+            args: Prisma.ordersCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload>
+          }
+          createMany: {
+            args: Prisma.ordersCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ordersDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload>
+          }
+          update: {
+            args: Prisma.ordersUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload>
+          }
+          deleteMany: {
+            args: Prisma.ordersDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ordersUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ordersUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ordersPayload>
+          }
+          aggregate: {
+            args: Prisma.OrdersAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOrders>
+          }
+          groupBy: {
+            args: Prisma.ordersGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OrdersGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ordersCountArgs<ExtArgs>
+            result: $Utils.Optional<OrdersCountAggregateOutputType> | number
+          }
+        }
+      }
+      like_res_2: {
+        payload: Prisma.$like_res_2Payload<ExtArgs>
+        fields: Prisma.like_res_2FieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.like_res_2FindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.like_res_2FindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload>
+          }
+          findFirst: {
+            args: Prisma.like_res_2FindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.like_res_2FindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload>
+          }
+          findMany: {
+            args: Prisma.like_res_2FindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload>[]
+          }
+          create: {
+            args: Prisma.like_res_2CreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload>
+          }
+          createMany: {
+            args: Prisma.like_res_2CreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.like_res_2DeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload>
+          }
+          update: {
+            args: Prisma.like_res_2UpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload>
+          }
+          deleteMany: {
+            args: Prisma.like_res_2DeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.like_res_2UpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.like_res_2UpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$like_res_2Payload>
+          }
+          aggregate: {
+            args: Prisma.Like_res_2AggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLike_res_2>
+          }
+          groupBy: {
+            args: Prisma.like_res_2GroupByArgs<ExtArgs>
+            result: $Utils.Optional<Like_res_2GroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.like_res_2CountArgs<ExtArgs>
+            result: $Utils.Optional<Like_res_2CountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1107,9 +1435,13 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     food?: foodOmit
     food_type?: food_typeOmit
+    like_res?: like_resOmit
+    rate_res?: rate_resOmit
     restaurant?: restaurantOmit
     sub_food?: sub_foodOmit
     users?: usersOmit
+    orders?: ordersOmit
+    like_res_2?: like_res_2Omit
   }
 
   /* Types for Logging */
@@ -1190,10 +1522,12 @@ export namespace Prisma {
    */
 
   export type FoodCountOutputType = {
+    orders: number
     sub_food: number
   }
 
   export type FoodCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    orders?: boolean | FoodCountOutputTypeCountOrdersArgs
     sub_food?: boolean | FoodCountOutputTypeCountSub_foodArgs
   }
 
@@ -1206,6 +1540,13 @@ export namespace Prisma {
      * Select specific fields to fetch from the FoodCountOutputType
      */
     select?: FoodCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FoodCountOutputType without action
+   */
+  export type FoodCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ordersWhereInput
   }
 
   /**
@@ -1244,6 +1585,113 @@ export namespace Prisma {
    */
   export type Food_typeCountOutputTypeCountFoodArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: foodWhereInput
+  }
+
+
+  /**
+   * Count Type RestaurantCountOutputType
+   */
+
+  export type RestaurantCountOutputType = {
+    like_res: number
+    like_res_2: number
+    rate_res: number
+  }
+
+  export type RestaurantCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    like_res?: boolean | RestaurantCountOutputTypeCountLike_resArgs
+    like_res_2?: boolean | RestaurantCountOutputTypeCountLike_res_2Args
+    rate_res?: boolean | RestaurantCountOutputTypeCountRate_resArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * RestaurantCountOutputType without action
+   */
+  export type RestaurantCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RestaurantCountOutputType
+     */
+    select?: RestaurantCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * RestaurantCountOutputType without action
+   */
+  export type RestaurantCountOutputTypeCountLike_resArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: like_resWhereInput
+  }
+
+  /**
+   * RestaurantCountOutputType without action
+   */
+  export type RestaurantCountOutputTypeCountLike_res_2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: like_res_2WhereInput
+  }
+
+  /**
+   * RestaurantCountOutputType without action
+   */
+  export type RestaurantCountOutputTypeCountRate_resArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: rate_resWhereInput
+  }
+
+
+  /**
+   * Count Type UsersCountOutputType
+   */
+
+  export type UsersCountOutputType = {
+    like_res: number
+    like_res_2: number
+    orders: number
+    rate_res: number
+  }
+
+  export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    like_res?: boolean | UsersCountOutputTypeCountLike_resArgs
+    like_res_2?: boolean | UsersCountOutputTypeCountLike_res_2Args
+    orders?: boolean | UsersCountOutputTypeCountOrdersArgs
+    rate_res?: boolean | UsersCountOutputTypeCountRate_resArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsersCountOutputType
+     */
+    select?: UsersCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountLike_resArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: like_resWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountLike_res_2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: like_res_2WhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ordersWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountRate_resArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: rate_resWhereInput
   }
 
 
@@ -1466,6 +1914,7 @@ export namespace Prisma {
     desc?: boolean
     typeId?: boolean
     food_type?: boolean | food$food_typeArgs<ExtArgs>
+    orders?: boolean | food$ordersArgs<ExtArgs>
     sub_food?: boolean | food$sub_foodArgs<ExtArgs>
     _count?: boolean | FoodCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["food"]>
@@ -1484,6 +1933,7 @@ export namespace Prisma {
   export type foodOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"foodId" | "foodname" | "image" | "price" | "desc" | "typeId", ExtArgs["result"]["food"]>
   export type foodInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     food_type?: boolean | food$food_typeArgs<ExtArgs>
+    orders?: boolean | food$ordersArgs<ExtArgs>
     sub_food?: boolean | food$sub_foodArgs<ExtArgs>
     _count?: boolean | FoodCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -1492,6 +1942,7 @@ export namespace Prisma {
     name: "food"
     objects: {
       food_type: Prisma.$food_typePayload<ExtArgs> | null
+      orders: Prisma.$ordersPayload<ExtArgs>[]
       sub_food: Prisma.$sub_foodPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -1842,6 +2293,7 @@ export namespace Prisma {
   export interface Prisma__foodClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     food_type<T extends food$food_typeArgs<ExtArgs> = {}>(args?: Subset<T, food$food_typeArgs<ExtArgs>>): Prisma__food_typeClient<$Result.GetResult<Prisma.$food_typePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    orders<T extends food$ordersArgs<ExtArgs> = {}>(args?: Subset<T, food$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sub_food<T extends food$sub_foodArgs<ExtArgs> = {}>(args?: Subset<T, food$sub_foodArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sub_foodPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2237,6 +2689,30 @@ export namespace Prisma {
      */
     include?: food_typeInclude<ExtArgs> | null
     where?: food_typeWhereInput
+  }
+
+  /**
+   * food.orders
+   */
+  export type food$ordersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    where?: ordersWhereInput
+    orderBy?: ordersOrderByWithRelationInput | ordersOrderByWithRelationInput[]
+    cursor?: ordersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
   }
 
   /**
@@ -3239,6 +3715,1930 @@ export namespace Prisma {
 
 
   /**
+   * Model like_res
+   */
+
+  export type AggregateLike_res = {
+    _count: Like_resCountAggregateOutputType | null
+    _avg: Like_resAvgAggregateOutputType | null
+    _sum: Like_resSumAggregateOutputType | null
+    _min: Like_resMinAggregateOutputType | null
+    _max: Like_resMaxAggregateOutputType | null
+  }
+
+  export type Like_resAvgAggregateOutputType = {
+    userId: number | null
+    resId: number | null
+  }
+
+  export type Like_resSumAggregateOutputType = {
+    userId: number | null
+    resId: number | null
+  }
+
+  export type Like_resMinAggregateOutputType = {
+    userId: number | null
+    resId: number | null
+    datelike: Date | null
+    isLike: boolean | null
+  }
+
+  export type Like_resMaxAggregateOutputType = {
+    userId: number | null
+    resId: number | null
+    datelike: Date | null
+    isLike: boolean | null
+  }
+
+  export type Like_resCountAggregateOutputType = {
+    userId: number
+    resId: number
+    datelike: number
+    isLike: number
+    _all: number
+  }
+
+
+  export type Like_resAvgAggregateInputType = {
+    userId?: true
+    resId?: true
+  }
+
+  export type Like_resSumAggregateInputType = {
+    userId?: true
+    resId?: true
+  }
+
+  export type Like_resMinAggregateInputType = {
+    userId?: true
+    resId?: true
+    datelike?: true
+    isLike?: true
+  }
+
+  export type Like_resMaxAggregateInputType = {
+    userId?: true
+    resId?: true
+    datelike?: true
+    isLike?: true
+  }
+
+  export type Like_resCountAggregateInputType = {
+    userId?: true
+    resId?: true
+    datelike?: true
+    isLike?: true
+    _all?: true
+  }
+
+  export type Like_resAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which like_res to aggregate.
+     */
+    where?: like_resWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of like_res to fetch.
+     */
+    orderBy?: like_resOrderByWithRelationInput | like_resOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: like_resWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` like_res from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` like_res.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned like_res
+    **/
+    _count?: true | Like_resCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Like_resAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Like_resSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Like_resMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Like_resMaxAggregateInputType
+  }
+
+  export type GetLike_resAggregateType<T extends Like_resAggregateArgs> = {
+        [P in keyof T & keyof AggregateLike_res]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLike_res[P]>
+      : GetScalarType<T[P], AggregateLike_res[P]>
+  }
+
+
+
+
+  export type like_resGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: like_resWhereInput
+    orderBy?: like_resOrderByWithAggregationInput | like_resOrderByWithAggregationInput[]
+    by: Like_resScalarFieldEnum[] | Like_resScalarFieldEnum
+    having?: like_resScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Like_resCountAggregateInputType | true
+    _avg?: Like_resAvgAggregateInputType
+    _sum?: Like_resSumAggregateInputType
+    _min?: Like_resMinAggregateInputType
+    _max?: Like_resMaxAggregateInputType
+  }
+
+  export type Like_resGroupByOutputType = {
+    userId: number
+    resId: number
+    datelike: Date | null
+    isLike: boolean | null
+    _count: Like_resCountAggregateOutputType | null
+    _avg: Like_resAvgAggregateOutputType | null
+    _sum: Like_resSumAggregateOutputType | null
+    _min: Like_resMinAggregateOutputType | null
+    _max: Like_resMaxAggregateOutputType | null
+  }
+
+  type GetLike_resGroupByPayload<T extends like_resGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Like_resGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Like_resGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Like_resGroupByOutputType[P]>
+            : GetScalarType<T[P], Like_resGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type like_resSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    userId?: boolean
+    resId?: boolean
+    datelike?: boolean
+    isLike?: boolean
+    users?: boolean | usersDefaultArgs<ExtArgs>
+    restaurant?: boolean | restaurantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["like_res"]>
+
+
+
+  export type like_resSelectScalar = {
+    userId?: boolean
+    resId?: boolean
+    datelike?: boolean
+    isLike?: boolean
+  }
+
+  export type like_resOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "resId" | "datelike" | "isLike", ExtArgs["result"]["like_res"]>
+  export type like_resInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | usersDefaultArgs<ExtArgs>
+    restaurant?: boolean | restaurantDefaultArgs<ExtArgs>
+  }
+
+  export type $like_resPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "like_res"
+    objects: {
+      users: Prisma.$usersPayload<ExtArgs>
+      restaurant: Prisma.$restaurantPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      userId: number
+      resId: number
+      datelike: Date | null
+      isLike: boolean | null
+    }, ExtArgs["result"]["like_res"]>
+    composites: {}
+  }
+
+  type like_resGetPayload<S extends boolean | null | undefined | like_resDefaultArgs> = $Result.GetResult<Prisma.$like_resPayload, S>
+
+  type like_resCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<like_resFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Like_resCountAggregateInputType | true
+    }
+
+  export interface like_resDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['like_res'], meta: { name: 'like_res' } }
+    /**
+     * Find zero or one Like_res that matches the filter.
+     * @param {like_resFindUniqueArgs} args - Arguments to find a Like_res
+     * @example
+     * // Get one Like_res
+     * const like_res = await prisma.like_res.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends like_resFindUniqueArgs>(args: SelectSubset<T, like_resFindUniqueArgs<ExtArgs>>): Prisma__like_resClient<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Like_res that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {like_resFindUniqueOrThrowArgs} args - Arguments to find a Like_res
+     * @example
+     * // Get one Like_res
+     * const like_res = await prisma.like_res.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends like_resFindUniqueOrThrowArgs>(args: SelectSubset<T, like_resFindUniqueOrThrowArgs<ExtArgs>>): Prisma__like_resClient<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Like_res that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_resFindFirstArgs} args - Arguments to find a Like_res
+     * @example
+     * // Get one Like_res
+     * const like_res = await prisma.like_res.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends like_resFindFirstArgs>(args?: SelectSubset<T, like_resFindFirstArgs<ExtArgs>>): Prisma__like_resClient<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Like_res that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_resFindFirstOrThrowArgs} args - Arguments to find a Like_res
+     * @example
+     * // Get one Like_res
+     * const like_res = await prisma.like_res.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends like_resFindFirstOrThrowArgs>(args?: SelectSubset<T, like_resFindFirstOrThrowArgs<ExtArgs>>): Prisma__like_resClient<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Like_res that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_resFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Like_res
+     * const like_res = await prisma.like_res.findMany()
+     * 
+     * // Get first 10 Like_res
+     * const like_res = await prisma.like_res.findMany({ take: 10 })
+     * 
+     * // Only select the `userId`
+     * const like_resWithUserIdOnly = await prisma.like_res.findMany({ select: { userId: true } })
+     * 
+     */
+    findMany<T extends like_resFindManyArgs>(args?: SelectSubset<T, like_resFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Like_res.
+     * @param {like_resCreateArgs} args - Arguments to create a Like_res.
+     * @example
+     * // Create one Like_res
+     * const Like_res = await prisma.like_res.create({
+     *   data: {
+     *     // ... data to create a Like_res
+     *   }
+     * })
+     * 
+     */
+    create<T extends like_resCreateArgs>(args: SelectSubset<T, like_resCreateArgs<ExtArgs>>): Prisma__like_resClient<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Like_res.
+     * @param {like_resCreateManyArgs} args - Arguments to create many Like_res.
+     * @example
+     * // Create many Like_res
+     * const like_res = await prisma.like_res.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends like_resCreateManyArgs>(args?: SelectSubset<T, like_resCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Like_res.
+     * @param {like_resDeleteArgs} args - Arguments to delete one Like_res.
+     * @example
+     * // Delete one Like_res
+     * const Like_res = await prisma.like_res.delete({
+     *   where: {
+     *     // ... filter to delete one Like_res
+     *   }
+     * })
+     * 
+     */
+    delete<T extends like_resDeleteArgs>(args: SelectSubset<T, like_resDeleteArgs<ExtArgs>>): Prisma__like_resClient<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Like_res.
+     * @param {like_resUpdateArgs} args - Arguments to update one Like_res.
+     * @example
+     * // Update one Like_res
+     * const like_res = await prisma.like_res.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends like_resUpdateArgs>(args: SelectSubset<T, like_resUpdateArgs<ExtArgs>>): Prisma__like_resClient<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Like_res.
+     * @param {like_resDeleteManyArgs} args - Arguments to filter Like_res to delete.
+     * @example
+     * // Delete a few Like_res
+     * const { count } = await prisma.like_res.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends like_resDeleteManyArgs>(args?: SelectSubset<T, like_resDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Like_res.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_resUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Like_res
+     * const like_res = await prisma.like_res.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends like_resUpdateManyArgs>(args: SelectSubset<T, like_resUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Like_res.
+     * @param {like_resUpsertArgs} args - Arguments to update or create a Like_res.
+     * @example
+     * // Update or create a Like_res
+     * const like_res = await prisma.like_res.upsert({
+     *   create: {
+     *     // ... data to create a Like_res
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Like_res we want to update
+     *   }
+     * })
+     */
+    upsert<T extends like_resUpsertArgs>(args: SelectSubset<T, like_resUpsertArgs<ExtArgs>>): Prisma__like_resClient<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Like_res.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_resCountArgs} args - Arguments to filter Like_res to count.
+     * @example
+     * // Count the number of Like_res
+     * const count = await prisma.like_res.count({
+     *   where: {
+     *     // ... the filter for the Like_res we want to count
+     *   }
+     * })
+    **/
+    count<T extends like_resCountArgs>(
+      args?: Subset<T, like_resCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Like_resCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Like_res.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Like_resAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Like_resAggregateArgs>(args: Subset<T, Like_resAggregateArgs>): Prisma.PrismaPromise<GetLike_resAggregateType<T>>
+
+    /**
+     * Group by Like_res.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_resGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends like_resGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: like_resGroupByArgs['orderBy'] }
+        : { orderBy?: like_resGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, like_resGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLike_resGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the like_res model
+   */
+  readonly fields: like_resFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for like_res.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__like_resClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    users<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    restaurant<T extends restaurantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, restaurantDefaultArgs<ExtArgs>>): Prisma__restaurantClient<$Result.GetResult<Prisma.$restaurantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the like_res model
+   */
+  interface like_resFieldRefs {
+    readonly userId: FieldRef<"like_res", 'Int'>
+    readonly resId: FieldRef<"like_res", 'Int'>
+    readonly datelike: FieldRef<"like_res", 'DateTime'>
+    readonly isLike: FieldRef<"like_res", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * like_res findUnique
+   */
+  export type like_resFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * Filter, which like_res to fetch.
+     */
+    where: like_resWhereUniqueInput
+  }
+
+  /**
+   * like_res findUniqueOrThrow
+   */
+  export type like_resFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * Filter, which like_res to fetch.
+     */
+    where: like_resWhereUniqueInput
+  }
+
+  /**
+   * like_res findFirst
+   */
+  export type like_resFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * Filter, which like_res to fetch.
+     */
+    where?: like_resWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of like_res to fetch.
+     */
+    orderBy?: like_resOrderByWithRelationInput | like_resOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for like_res.
+     */
+    cursor?: like_resWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` like_res from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` like_res.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of like_res.
+     */
+    distinct?: Like_resScalarFieldEnum | Like_resScalarFieldEnum[]
+  }
+
+  /**
+   * like_res findFirstOrThrow
+   */
+  export type like_resFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * Filter, which like_res to fetch.
+     */
+    where?: like_resWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of like_res to fetch.
+     */
+    orderBy?: like_resOrderByWithRelationInput | like_resOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for like_res.
+     */
+    cursor?: like_resWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` like_res from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` like_res.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of like_res.
+     */
+    distinct?: Like_resScalarFieldEnum | Like_resScalarFieldEnum[]
+  }
+
+  /**
+   * like_res findMany
+   */
+  export type like_resFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * Filter, which like_res to fetch.
+     */
+    where?: like_resWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of like_res to fetch.
+     */
+    orderBy?: like_resOrderByWithRelationInput | like_resOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing like_res.
+     */
+    cursor?: like_resWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` like_res from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` like_res.
+     */
+    skip?: number
+    distinct?: Like_resScalarFieldEnum | Like_resScalarFieldEnum[]
+  }
+
+  /**
+   * like_res create
+   */
+  export type like_resCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * The data needed to create a like_res.
+     */
+    data: XOR<like_resCreateInput, like_resUncheckedCreateInput>
+  }
+
+  /**
+   * like_res createMany
+   */
+  export type like_resCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many like_res.
+     */
+    data: like_resCreateManyInput | like_resCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * like_res update
+   */
+  export type like_resUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * The data needed to update a like_res.
+     */
+    data: XOR<like_resUpdateInput, like_resUncheckedUpdateInput>
+    /**
+     * Choose, which like_res to update.
+     */
+    where: like_resWhereUniqueInput
+  }
+
+  /**
+   * like_res updateMany
+   */
+  export type like_resUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update like_res.
+     */
+    data: XOR<like_resUpdateManyMutationInput, like_resUncheckedUpdateManyInput>
+    /**
+     * Filter which like_res to update
+     */
+    where?: like_resWhereInput
+    /**
+     * Limit how many like_res to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * like_res upsert
+   */
+  export type like_resUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * The filter to search for the like_res to update in case it exists.
+     */
+    where: like_resWhereUniqueInput
+    /**
+     * In case the like_res found by the `where` argument doesn't exist, create a new like_res with this data.
+     */
+    create: XOR<like_resCreateInput, like_resUncheckedCreateInput>
+    /**
+     * In case the like_res was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<like_resUpdateInput, like_resUncheckedUpdateInput>
+  }
+
+  /**
+   * like_res delete
+   */
+  export type like_resDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    /**
+     * Filter which like_res to delete.
+     */
+    where: like_resWhereUniqueInput
+  }
+
+  /**
+   * like_res deleteMany
+   */
+  export type like_resDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which like_res to delete
+     */
+    where?: like_resWhereInput
+    /**
+     * Limit how many like_res to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * like_res without action
+   */
+  export type like_resDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model rate_res
+   */
+
+  export type AggregateRate_res = {
+    _count: Rate_resCountAggregateOutputType | null
+    _avg: Rate_resAvgAggregateOutputType | null
+    _sum: Rate_resSumAggregateOutputType | null
+    _min: Rate_resMinAggregateOutputType | null
+    _max: Rate_resMaxAggregateOutputType | null
+  }
+
+  export type Rate_resAvgAggregateOutputType = {
+    userId: number | null
+    resId: number | null
+    amount: number | null
+  }
+
+  export type Rate_resSumAggregateOutputType = {
+    userId: number | null
+    resId: number | null
+    amount: number | null
+  }
+
+  export type Rate_resMinAggregateOutputType = {
+    userId: number | null
+    resId: number | null
+    amount: number | null
+    daterate: Date | null
+  }
+
+  export type Rate_resMaxAggregateOutputType = {
+    userId: number | null
+    resId: number | null
+    amount: number | null
+    daterate: Date | null
+  }
+
+  export type Rate_resCountAggregateOutputType = {
+    userId: number
+    resId: number
+    amount: number
+    daterate: number
+    _all: number
+  }
+
+
+  export type Rate_resAvgAggregateInputType = {
+    userId?: true
+    resId?: true
+    amount?: true
+  }
+
+  export type Rate_resSumAggregateInputType = {
+    userId?: true
+    resId?: true
+    amount?: true
+  }
+
+  export type Rate_resMinAggregateInputType = {
+    userId?: true
+    resId?: true
+    amount?: true
+    daterate?: true
+  }
+
+  export type Rate_resMaxAggregateInputType = {
+    userId?: true
+    resId?: true
+    amount?: true
+    daterate?: true
+  }
+
+  export type Rate_resCountAggregateInputType = {
+    userId?: true
+    resId?: true
+    amount?: true
+    daterate?: true
+    _all?: true
+  }
+
+  export type Rate_resAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which rate_res to aggregate.
+     */
+    where?: rate_resWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of rate_res to fetch.
+     */
+    orderBy?: rate_resOrderByWithRelationInput | rate_resOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: rate_resWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` rate_res from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` rate_res.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned rate_res
+    **/
+    _count?: true | Rate_resCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Rate_resAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Rate_resSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Rate_resMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Rate_resMaxAggregateInputType
+  }
+
+  export type GetRate_resAggregateType<T extends Rate_resAggregateArgs> = {
+        [P in keyof T & keyof AggregateRate_res]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRate_res[P]>
+      : GetScalarType<T[P], AggregateRate_res[P]>
+  }
+
+
+
+
+  export type rate_resGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: rate_resWhereInput
+    orderBy?: rate_resOrderByWithAggregationInput | rate_resOrderByWithAggregationInput[]
+    by: Rate_resScalarFieldEnum[] | Rate_resScalarFieldEnum
+    having?: rate_resScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Rate_resCountAggregateInputType | true
+    _avg?: Rate_resAvgAggregateInputType
+    _sum?: Rate_resSumAggregateInputType
+    _min?: Rate_resMinAggregateInputType
+    _max?: Rate_resMaxAggregateInputType
+  }
+
+  export type Rate_resGroupByOutputType = {
+    userId: number
+    resId: number
+    amount: number | null
+    daterate: Date | null
+    _count: Rate_resCountAggregateOutputType | null
+    _avg: Rate_resAvgAggregateOutputType | null
+    _sum: Rate_resSumAggregateOutputType | null
+    _min: Rate_resMinAggregateOutputType | null
+    _max: Rate_resMaxAggregateOutputType | null
+  }
+
+  type GetRate_resGroupByPayload<T extends rate_resGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Rate_resGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Rate_resGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Rate_resGroupByOutputType[P]>
+            : GetScalarType<T[P], Rate_resGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type rate_resSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    userId?: boolean
+    resId?: boolean
+    amount?: boolean
+    daterate?: boolean
+    users?: boolean | usersDefaultArgs<ExtArgs>
+    restaurant?: boolean | restaurantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["rate_res"]>
+
+
+
+  export type rate_resSelectScalar = {
+    userId?: boolean
+    resId?: boolean
+    amount?: boolean
+    daterate?: boolean
+  }
+
+  export type rate_resOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "resId" | "amount" | "daterate", ExtArgs["result"]["rate_res"]>
+  export type rate_resInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | usersDefaultArgs<ExtArgs>
+    restaurant?: boolean | restaurantDefaultArgs<ExtArgs>
+  }
+
+  export type $rate_resPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "rate_res"
+    objects: {
+      users: Prisma.$usersPayload<ExtArgs>
+      restaurant: Prisma.$restaurantPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      userId: number
+      resId: number
+      amount: number | null
+      daterate: Date | null
+    }, ExtArgs["result"]["rate_res"]>
+    composites: {}
+  }
+
+  type rate_resGetPayload<S extends boolean | null | undefined | rate_resDefaultArgs> = $Result.GetResult<Prisma.$rate_resPayload, S>
+
+  type rate_resCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<rate_resFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Rate_resCountAggregateInputType | true
+    }
+
+  export interface rate_resDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['rate_res'], meta: { name: 'rate_res' } }
+    /**
+     * Find zero or one Rate_res that matches the filter.
+     * @param {rate_resFindUniqueArgs} args - Arguments to find a Rate_res
+     * @example
+     * // Get one Rate_res
+     * const rate_res = await prisma.rate_res.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends rate_resFindUniqueArgs>(args: SelectSubset<T, rate_resFindUniqueArgs<ExtArgs>>): Prisma__rate_resClient<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Rate_res that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {rate_resFindUniqueOrThrowArgs} args - Arguments to find a Rate_res
+     * @example
+     * // Get one Rate_res
+     * const rate_res = await prisma.rate_res.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends rate_resFindUniqueOrThrowArgs>(args: SelectSubset<T, rate_resFindUniqueOrThrowArgs<ExtArgs>>): Prisma__rate_resClient<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Rate_res that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rate_resFindFirstArgs} args - Arguments to find a Rate_res
+     * @example
+     * // Get one Rate_res
+     * const rate_res = await prisma.rate_res.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends rate_resFindFirstArgs>(args?: SelectSubset<T, rate_resFindFirstArgs<ExtArgs>>): Prisma__rate_resClient<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Rate_res that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rate_resFindFirstOrThrowArgs} args - Arguments to find a Rate_res
+     * @example
+     * // Get one Rate_res
+     * const rate_res = await prisma.rate_res.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends rate_resFindFirstOrThrowArgs>(args?: SelectSubset<T, rate_resFindFirstOrThrowArgs<ExtArgs>>): Prisma__rate_resClient<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Rate_res that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rate_resFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Rate_res
+     * const rate_res = await prisma.rate_res.findMany()
+     * 
+     * // Get first 10 Rate_res
+     * const rate_res = await prisma.rate_res.findMany({ take: 10 })
+     * 
+     * // Only select the `userId`
+     * const rate_resWithUserIdOnly = await prisma.rate_res.findMany({ select: { userId: true } })
+     * 
+     */
+    findMany<T extends rate_resFindManyArgs>(args?: SelectSubset<T, rate_resFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Rate_res.
+     * @param {rate_resCreateArgs} args - Arguments to create a Rate_res.
+     * @example
+     * // Create one Rate_res
+     * const Rate_res = await prisma.rate_res.create({
+     *   data: {
+     *     // ... data to create a Rate_res
+     *   }
+     * })
+     * 
+     */
+    create<T extends rate_resCreateArgs>(args: SelectSubset<T, rate_resCreateArgs<ExtArgs>>): Prisma__rate_resClient<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Rate_res.
+     * @param {rate_resCreateManyArgs} args - Arguments to create many Rate_res.
+     * @example
+     * // Create many Rate_res
+     * const rate_res = await prisma.rate_res.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends rate_resCreateManyArgs>(args?: SelectSubset<T, rate_resCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Rate_res.
+     * @param {rate_resDeleteArgs} args - Arguments to delete one Rate_res.
+     * @example
+     * // Delete one Rate_res
+     * const Rate_res = await prisma.rate_res.delete({
+     *   where: {
+     *     // ... filter to delete one Rate_res
+     *   }
+     * })
+     * 
+     */
+    delete<T extends rate_resDeleteArgs>(args: SelectSubset<T, rate_resDeleteArgs<ExtArgs>>): Prisma__rate_resClient<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Rate_res.
+     * @param {rate_resUpdateArgs} args - Arguments to update one Rate_res.
+     * @example
+     * // Update one Rate_res
+     * const rate_res = await prisma.rate_res.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends rate_resUpdateArgs>(args: SelectSubset<T, rate_resUpdateArgs<ExtArgs>>): Prisma__rate_resClient<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Rate_res.
+     * @param {rate_resDeleteManyArgs} args - Arguments to filter Rate_res to delete.
+     * @example
+     * // Delete a few Rate_res
+     * const { count } = await prisma.rate_res.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends rate_resDeleteManyArgs>(args?: SelectSubset<T, rate_resDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Rate_res.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rate_resUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Rate_res
+     * const rate_res = await prisma.rate_res.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends rate_resUpdateManyArgs>(args: SelectSubset<T, rate_resUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Rate_res.
+     * @param {rate_resUpsertArgs} args - Arguments to update or create a Rate_res.
+     * @example
+     * // Update or create a Rate_res
+     * const rate_res = await prisma.rate_res.upsert({
+     *   create: {
+     *     // ... data to create a Rate_res
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Rate_res we want to update
+     *   }
+     * })
+     */
+    upsert<T extends rate_resUpsertArgs>(args: SelectSubset<T, rate_resUpsertArgs<ExtArgs>>): Prisma__rate_resClient<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Rate_res.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rate_resCountArgs} args - Arguments to filter Rate_res to count.
+     * @example
+     * // Count the number of Rate_res
+     * const count = await prisma.rate_res.count({
+     *   where: {
+     *     // ... the filter for the Rate_res we want to count
+     *   }
+     * })
+    **/
+    count<T extends rate_resCountArgs>(
+      args?: Subset<T, rate_resCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Rate_resCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Rate_res.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Rate_resAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Rate_resAggregateArgs>(args: Subset<T, Rate_resAggregateArgs>): Prisma.PrismaPromise<GetRate_resAggregateType<T>>
+
+    /**
+     * Group by Rate_res.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rate_resGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends rate_resGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: rate_resGroupByArgs['orderBy'] }
+        : { orderBy?: rate_resGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, rate_resGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRate_resGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the rate_res model
+   */
+  readonly fields: rate_resFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for rate_res.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__rate_resClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    users<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    restaurant<T extends restaurantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, restaurantDefaultArgs<ExtArgs>>): Prisma__restaurantClient<$Result.GetResult<Prisma.$restaurantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the rate_res model
+   */
+  interface rate_resFieldRefs {
+    readonly userId: FieldRef<"rate_res", 'Int'>
+    readonly resId: FieldRef<"rate_res", 'Int'>
+    readonly amount: FieldRef<"rate_res", 'Int'>
+    readonly daterate: FieldRef<"rate_res", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * rate_res findUnique
+   */
+  export type rate_resFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * Filter, which rate_res to fetch.
+     */
+    where: rate_resWhereUniqueInput
+  }
+
+  /**
+   * rate_res findUniqueOrThrow
+   */
+  export type rate_resFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * Filter, which rate_res to fetch.
+     */
+    where: rate_resWhereUniqueInput
+  }
+
+  /**
+   * rate_res findFirst
+   */
+  export type rate_resFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * Filter, which rate_res to fetch.
+     */
+    where?: rate_resWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of rate_res to fetch.
+     */
+    orderBy?: rate_resOrderByWithRelationInput | rate_resOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for rate_res.
+     */
+    cursor?: rate_resWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` rate_res from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` rate_res.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of rate_res.
+     */
+    distinct?: Rate_resScalarFieldEnum | Rate_resScalarFieldEnum[]
+  }
+
+  /**
+   * rate_res findFirstOrThrow
+   */
+  export type rate_resFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * Filter, which rate_res to fetch.
+     */
+    where?: rate_resWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of rate_res to fetch.
+     */
+    orderBy?: rate_resOrderByWithRelationInput | rate_resOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for rate_res.
+     */
+    cursor?: rate_resWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` rate_res from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` rate_res.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of rate_res.
+     */
+    distinct?: Rate_resScalarFieldEnum | Rate_resScalarFieldEnum[]
+  }
+
+  /**
+   * rate_res findMany
+   */
+  export type rate_resFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * Filter, which rate_res to fetch.
+     */
+    where?: rate_resWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of rate_res to fetch.
+     */
+    orderBy?: rate_resOrderByWithRelationInput | rate_resOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing rate_res.
+     */
+    cursor?: rate_resWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` rate_res from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` rate_res.
+     */
+    skip?: number
+    distinct?: Rate_resScalarFieldEnum | Rate_resScalarFieldEnum[]
+  }
+
+  /**
+   * rate_res create
+   */
+  export type rate_resCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * The data needed to create a rate_res.
+     */
+    data: XOR<rate_resCreateInput, rate_resUncheckedCreateInput>
+  }
+
+  /**
+   * rate_res createMany
+   */
+  export type rate_resCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many rate_res.
+     */
+    data: rate_resCreateManyInput | rate_resCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * rate_res update
+   */
+  export type rate_resUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * The data needed to update a rate_res.
+     */
+    data: XOR<rate_resUpdateInput, rate_resUncheckedUpdateInput>
+    /**
+     * Choose, which rate_res to update.
+     */
+    where: rate_resWhereUniqueInput
+  }
+
+  /**
+   * rate_res updateMany
+   */
+  export type rate_resUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update rate_res.
+     */
+    data: XOR<rate_resUpdateManyMutationInput, rate_resUncheckedUpdateManyInput>
+    /**
+     * Filter which rate_res to update
+     */
+    where?: rate_resWhereInput
+    /**
+     * Limit how many rate_res to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * rate_res upsert
+   */
+  export type rate_resUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * The filter to search for the rate_res to update in case it exists.
+     */
+    where: rate_resWhereUniqueInput
+    /**
+     * In case the rate_res found by the `where` argument doesn't exist, create a new rate_res with this data.
+     */
+    create: XOR<rate_resCreateInput, rate_resUncheckedCreateInput>
+    /**
+     * In case the rate_res was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<rate_resUpdateInput, rate_resUncheckedUpdateInput>
+  }
+
+  /**
+   * rate_res delete
+   */
+  export type rate_resDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    /**
+     * Filter which rate_res to delete.
+     */
+    where: rate_resWhereUniqueInput
+  }
+
+  /**
+   * rate_res deleteMany
+   */
+  export type rate_resDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which rate_res to delete
+     */
+    where?: rate_resWhereInput
+    /**
+     * Limit how many rate_res to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * rate_res without action
+   */
+  export type rate_resDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model restaurant
    */
 
@@ -3428,6 +5828,10 @@ export namespace Prisma {
     resname?: boolean
     image?: boolean
     desc?: boolean
+    like_res?: boolean | restaurant$like_resArgs<ExtArgs>
+    like_res_2?: boolean | restaurant$like_res_2Args<ExtArgs>
+    rate_res?: boolean | restaurant$rate_resArgs<ExtArgs>
+    _count?: boolean | RestaurantCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["restaurant"]>
 
 
@@ -3440,10 +5844,20 @@ export namespace Prisma {
   }
 
   export type restaurantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"resId" | "resname" | "image" | "desc", ExtArgs["result"]["restaurant"]>
+  export type restaurantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    like_res?: boolean | restaurant$like_resArgs<ExtArgs>
+    like_res_2?: boolean | restaurant$like_res_2Args<ExtArgs>
+    rate_res?: boolean | restaurant$rate_resArgs<ExtArgs>
+    _count?: boolean | RestaurantCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $restaurantPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "restaurant"
-    objects: {}
+    objects: {
+      like_res: Prisma.$like_resPayload<ExtArgs>[]
+      like_res_2: Prisma.$like_res_2Payload<ExtArgs>[]
+      rate_res: Prisma.$rate_resPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       resId: number
       resname: string | null
@@ -3789,6 +6203,9 @@ export namespace Prisma {
    */
   export interface Prisma__restaurantClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    like_res<T extends restaurant$like_resArgs<ExtArgs> = {}>(args?: Subset<T, restaurant$like_resArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    like_res_2<T extends restaurant$like_res_2Args<ExtArgs> = {}>(args?: Subset<T, restaurant$like_res_2Args<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    rate_res<T extends restaurant$rate_resArgs<ExtArgs> = {}>(args?: Subset<T, restaurant$rate_resArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3839,6 +6256,10 @@ export namespace Prisma {
      */
     omit?: restaurantOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
+    /**
      * Filter, which restaurant to fetch.
      */
     where: restaurantWhereUniqueInput
@@ -3857,6 +6278,10 @@ export namespace Prisma {
      */
     omit?: restaurantOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
+    /**
      * Filter, which restaurant to fetch.
      */
     where: restaurantWhereUniqueInput
@@ -3874,6 +6299,10 @@ export namespace Prisma {
      * Omit specific fields from the restaurant
      */
     omit?: restaurantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
     /**
      * Filter, which restaurant to fetch.
      */
@@ -3923,6 +6352,10 @@ export namespace Prisma {
      */
     omit?: restaurantOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
+    /**
      * Filter, which restaurant to fetch.
      */
     where?: restaurantWhereInput
@@ -3971,6 +6404,10 @@ export namespace Prisma {
      */
     omit?: restaurantOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
+    /**
      * Filter, which restaurants to fetch.
      */
     where?: restaurantWhereInput
@@ -4014,6 +6451,10 @@ export namespace Prisma {
      */
     omit?: restaurantOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
+    /**
      * The data needed to create a restaurant.
      */
     data?: XOR<restaurantCreateInput, restaurantUncheckedCreateInput>
@@ -4042,6 +6483,10 @@ export namespace Prisma {
      * Omit specific fields from the restaurant
      */
     omit?: restaurantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
     /**
      * The data needed to update a restaurant.
      */
@@ -4083,6 +6528,10 @@ export namespace Prisma {
      */
     omit?: restaurantOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
+    /**
      * The filter to search for the restaurant to update in case it exists.
      */
     where: restaurantWhereUniqueInput
@@ -4109,6 +6558,10 @@ export namespace Prisma {
      */
     omit?: restaurantOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
+    /**
      * Filter which restaurant to delete.
      */
     where: restaurantWhereUniqueInput
@@ -4129,6 +6582,78 @@ export namespace Prisma {
   }
 
   /**
+   * restaurant.like_res
+   */
+  export type restaurant$like_resArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    where?: like_resWhereInput
+    orderBy?: like_resOrderByWithRelationInput | like_resOrderByWithRelationInput[]
+    cursor?: like_resWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Like_resScalarFieldEnum | Like_resScalarFieldEnum[]
+  }
+
+  /**
+   * restaurant.like_res_2
+   */
+  export type restaurant$like_res_2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    where?: like_res_2WhereInput
+    orderBy?: like_res_2OrderByWithRelationInput | like_res_2OrderByWithRelationInput[]
+    cursor?: like_res_2WhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Like_res_2ScalarFieldEnum | Like_res_2ScalarFieldEnum[]
+  }
+
+  /**
+   * restaurant.rate_res
+   */
+  export type restaurant$rate_resArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    where?: rate_resWhereInput
+    orderBy?: rate_resOrderByWithRelationInput | rate_resOrderByWithRelationInput[]
+    cursor?: rate_resWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Rate_resScalarFieldEnum | Rate_resScalarFieldEnum[]
+  }
+
+  /**
    * restaurant without action
    */
   export type restaurantDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4140,6 +6665,10 @@ export namespace Prisma {
      * Omit specific fields from the restaurant
      */
     omit?: restaurantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
   }
 
 
@@ -5312,6 +7841,11 @@ export namespace Prisma {
     fullname?: boolean
     email?: boolean
     password?: boolean
+    like_res?: boolean | users$like_resArgs<ExtArgs>
+    like_res_2?: boolean | users$like_res_2Args<ExtArgs>
+    orders?: boolean | users$ordersArgs<ExtArgs>
+    rate_res?: boolean | users$rate_resArgs<ExtArgs>
+    _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
 
@@ -5324,10 +7858,22 @@ export namespace Prisma {
   }
 
   export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "fullname" | "email" | "password", ExtArgs["result"]["users"]>
+  export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    like_res?: boolean | users$like_resArgs<ExtArgs>
+    like_res_2?: boolean | users$like_res_2Args<ExtArgs>
+    orders?: boolean | users$ordersArgs<ExtArgs>
+    rate_res?: boolean | users$rate_resArgs<ExtArgs>
+    _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $usersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "users"
-    objects: {}
+    objects: {
+      like_res: Prisma.$like_resPayload<ExtArgs>[]
+      like_res_2: Prisma.$like_res_2Payload<ExtArgs>[]
+      orders: Prisma.$ordersPayload<ExtArgs>[]
+      rate_res: Prisma.$rate_resPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       userId: number
       fullname: string | null
@@ -5673,6 +8219,10 @@ export namespace Prisma {
    */
   export interface Prisma__usersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    like_res<T extends users$like_resArgs<ExtArgs> = {}>(args?: Subset<T, users$like_resArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$like_resPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    like_res_2<T extends users$like_res_2Args<ExtArgs> = {}>(args?: Subset<T, users$like_res_2Args<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    orders<T extends users$ordersArgs<ExtArgs> = {}>(args?: Subset<T, users$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    rate_res<T extends users$rate_resArgs<ExtArgs> = {}>(args?: Subset<T, users$rate_resArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rate_resPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5723,6 +8273,10 @@ export namespace Prisma {
      */
     omit?: usersOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    /**
      * Filter, which users to fetch.
      */
     where: usersWhereUniqueInput
@@ -5741,6 +8295,10 @@ export namespace Prisma {
      */
     omit?: usersOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    /**
      * Filter, which users to fetch.
      */
     where: usersWhereUniqueInput
@@ -5758,6 +8316,10 @@ export namespace Prisma {
      * Omit specific fields from the users
      */
     omit?: usersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
     /**
      * Filter, which users to fetch.
      */
@@ -5807,6 +8369,10 @@ export namespace Prisma {
      */
     omit?: usersOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    /**
      * Filter, which users to fetch.
      */
     where?: usersWhereInput
@@ -5855,6 +8421,10 @@ export namespace Prisma {
      */
     omit?: usersOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    /**
      * Filter, which users to fetch.
      */
     where?: usersWhereInput
@@ -5898,6 +8468,10 @@ export namespace Prisma {
      */
     omit?: usersOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    /**
      * The data needed to create a users.
      */
     data?: XOR<usersCreateInput, usersUncheckedCreateInput>
@@ -5926,6 +8500,10 @@ export namespace Prisma {
      * Omit specific fields from the users
      */
     omit?: usersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
     /**
      * The data needed to update a users.
      */
@@ -5967,6 +8545,10 @@ export namespace Prisma {
      */
     omit?: usersOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    /**
      * The filter to search for the users to update in case it exists.
      */
     where: usersWhereUniqueInput
@@ -5993,6 +8575,10 @@ export namespace Prisma {
      */
     omit?: usersOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    /**
      * Filter which users to delete.
      */
     where: usersWhereUniqueInput
@@ -6013,6 +8599,102 @@ export namespace Prisma {
   }
 
   /**
+   * users.like_res
+   */
+  export type users$like_resArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res
+     */
+    select?: like_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res
+     */
+    omit?: like_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_resInclude<ExtArgs> | null
+    where?: like_resWhereInput
+    orderBy?: like_resOrderByWithRelationInput | like_resOrderByWithRelationInput[]
+    cursor?: like_resWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Like_resScalarFieldEnum | Like_resScalarFieldEnum[]
+  }
+
+  /**
+   * users.like_res_2
+   */
+  export type users$like_res_2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    where?: like_res_2WhereInput
+    orderBy?: like_res_2OrderByWithRelationInput | like_res_2OrderByWithRelationInput[]
+    cursor?: like_res_2WhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Like_res_2ScalarFieldEnum | Like_res_2ScalarFieldEnum[]
+  }
+
+  /**
+   * users.orders
+   */
+  export type users$ordersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    where?: ordersWhereInput
+    orderBy?: ordersOrderByWithRelationInput | ordersOrderByWithRelationInput[]
+    cursor?: ordersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
+  }
+
+  /**
+   * users.rate_res
+   */
+  export type users$rate_resArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the rate_res
+     */
+    select?: rate_resSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the rate_res
+     */
+    omit?: rate_resOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: rate_resInclude<ExtArgs> | null
+    where?: rate_resWhereInput
+    orderBy?: rate_resOrderByWithRelationInput | rate_resOrderByWithRelationInput[]
+    cursor?: rate_resWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Rate_resScalarFieldEnum | Rate_resScalarFieldEnum[]
+  }
+
+  /**
    * users without action
    */
   export type usersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6024,6 +8706,2051 @@ export namespace Prisma {
      * Omit specific fields from the users
      */
     omit?: usersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model orders
+   */
+
+  export type AggregateOrders = {
+    _count: OrdersCountAggregateOutputType | null
+    _avg: OrdersAvgAggregateOutputType | null
+    _sum: OrdersSumAggregateOutputType | null
+    _min: OrdersMinAggregateOutputType | null
+    _max: OrdersMaxAggregateOutputType | null
+  }
+
+  export type OrdersAvgAggregateOutputType = {
+    orderId: number | null
+    userId: number | null
+    foodId: number | null
+    amount: number | null
+  }
+
+  export type OrdersSumAggregateOutputType = {
+    orderId: number | null
+    userId: number | null
+    foodId: number | null
+    amount: number | null
+  }
+
+  export type OrdersMinAggregateOutputType = {
+    orderId: number | null
+    userId: number | null
+    foodId: number | null
+    amount: number | null
+    code: string | null
+    arrsubId: string | null
+  }
+
+  export type OrdersMaxAggregateOutputType = {
+    orderId: number | null
+    userId: number | null
+    foodId: number | null
+    amount: number | null
+    code: string | null
+    arrsubId: string | null
+  }
+
+  export type OrdersCountAggregateOutputType = {
+    orderId: number
+    userId: number
+    foodId: number
+    amount: number
+    code: number
+    arrsubId: number
+    _all: number
+  }
+
+
+  export type OrdersAvgAggregateInputType = {
+    orderId?: true
+    userId?: true
+    foodId?: true
+    amount?: true
+  }
+
+  export type OrdersSumAggregateInputType = {
+    orderId?: true
+    userId?: true
+    foodId?: true
+    amount?: true
+  }
+
+  export type OrdersMinAggregateInputType = {
+    orderId?: true
+    userId?: true
+    foodId?: true
+    amount?: true
+    code?: true
+    arrsubId?: true
+  }
+
+  export type OrdersMaxAggregateInputType = {
+    orderId?: true
+    userId?: true
+    foodId?: true
+    amount?: true
+    code?: true
+    arrsubId?: true
+  }
+
+  export type OrdersCountAggregateInputType = {
+    orderId?: true
+    userId?: true
+    foodId?: true
+    amount?: true
+    code?: true
+    arrsubId?: true
+    _all?: true
+  }
+
+  export type OrdersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which orders to aggregate.
+     */
+    where?: ordersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of orders to fetch.
+     */
+    orderBy?: ordersOrderByWithRelationInput | ordersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ordersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` orders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` orders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned orders
+    **/
+    _count?: true | OrdersCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OrdersAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OrdersSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OrdersMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OrdersMaxAggregateInputType
+  }
+
+  export type GetOrdersAggregateType<T extends OrdersAggregateArgs> = {
+        [P in keyof T & keyof AggregateOrders]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOrders[P]>
+      : GetScalarType<T[P], AggregateOrders[P]>
+  }
+
+
+
+
+  export type ordersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ordersWhereInput
+    orderBy?: ordersOrderByWithAggregationInput | ordersOrderByWithAggregationInput[]
+    by: OrdersScalarFieldEnum[] | OrdersScalarFieldEnum
+    having?: ordersScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OrdersCountAggregateInputType | true
+    _avg?: OrdersAvgAggregateInputType
+    _sum?: OrdersSumAggregateInputType
+    _min?: OrdersMinAggregateInputType
+    _max?: OrdersMaxAggregateInputType
+  }
+
+  export type OrdersGroupByOutputType = {
+    orderId: number
+    userId: number | null
+    foodId: number | null
+    amount: number | null
+    code: string | null
+    arrsubId: string | null
+    _count: OrdersCountAggregateOutputType | null
+    _avg: OrdersAvgAggregateOutputType | null
+    _sum: OrdersSumAggregateOutputType | null
+    _min: OrdersMinAggregateOutputType | null
+    _max: OrdersMaxAggregateOutputType | null
+  }
+
+  type GetOrdersGroupByPayload<T extends ordersGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OrdersGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OrdersGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OrdersGroupByOutputType[P]>
+            : GetScalarType<T[P], OrdersGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ordersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    orderId?: boolean
+    userId?: boolean
+    foodId?: boolean
+    amount?: boolean
+    code?: boolean
+    arrsubId?: boolean
+    users?: boolean | orders$usersArgs<ExtArgs>
+    food?: boolean | orders$foodArgs<ExtArgs>
+  }, ExtArgs["result"]["orders"]>
+
+
+
+  export type ordersSelectScalar = {
+    orderId?: boolean
+    userId?: boolean
+    foodId?: boolean
+    amount?: boolean
+    code?: boolean
+    arrsubId?: boolean
+  }
+
+  export type ordersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"orderId" | "userId" | "foodId" | "amount" | "code" | "arrsubId", ExtArgs["result"]["orders"]>
+  export type ordersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | orders$usersArgs<ExtArgs>
+    food?: boolean | orders$foodArgs<ExtArgs>
+  }
+
+  export type $ordersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "orders"
+    objects: {
+      users: Prisma.$usersPayload<ExtArgs> | null
+      food: Prisma.$foodPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      orderId: number
+      userId: number | null
+      foodId: number | null
+      amount: number | null
+      code: string | null
+      arrsubId: string | null
+    }, ExtArgs["result"]["orders"]>
+    composites: {}
+  }
+
+  type ordersGetPayload<S extends boolean | null | undefined | ordersDefaultArgs> = $Result.GetResult<Prisma.$ordersPayload, S>
+
+  type ordersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ordersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OrdersCountAggregateInputType | true
+    }
+
+  export interface ordersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['orders'], meta: { name: 'orders' } }
+    /**
+     * Find zero or one Orders that matches the filter.
+     * @param {ordersFindUniqueArgs} args - Arguments to find a Orders
+     * @example
+     * // Get one Orders
+     * const orders = await prisma.orders.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ordersFindUniqueArgs>(args: SelectSubset<T, ordersFindUniqueArgs<ExtArgs>>): Prisma__ordersClient<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Orders that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ordersFindUniqueOrThrowArgs} args - Arguments to find a Orders
+     * @example
+     * // Get one Orders
+     * const orders = await prisma.orders.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ordersFindUniqueOrThrowArgs>(args: SelectSubset<T, ordersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ordersClient<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Orders that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ordersFindFirstArgs} args - Arguments to find a Orders
+     * @example
+     * // Get one Orders
+     * const orders = await prisma.orders.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ordersFindFirstArgs>(args?: SelectSubset<T, ordersFindFirstArgs<ExtArgs>>): Prisma__ordersClient<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Orders that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ordersFindFirstOrThrowArgs} args - Arguments to find a Orders
+     * @example
+     * // Get one Orders
+     * const orders = await prisma.orders.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ordersFindFirstOrThrowArgs>(args?: SelectSubset<T, ordersFindFirstOrThrowArgs<ExtArgs>>): Prisma__ordersClient<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Orders that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ordersFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Orders
+     * const orders = await prisma.orders.findMany()
+     * 
+     * // Get first 10 Orders
+     * const orders = await prisma.orders.findMany({ take: 10 })
+     * 
+     * // Only select the `orderId`
+     * const ordersWithOrderIdOnly = await prisma.orders.findMany({ select: { orderId: true } })
+     * 
+     */
+    findMany<T extends ordersFindManyArgs>(args?: SelectSubset<T, ordersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Orders.
+     * @param {ordersCreateArgs} args - Arguments to create a Orders.
+     * @example
+     * // Create one Orders
+     * const Orders = await prisma.orders.create({
+     *   data: {
+     *     // ... data to create a Orders
+     *   }
+     * })
+     * 
+     */
+    create<T extends ordersCreateArgs>(args: SelectSubset<T, ordersCreateArgs<ExtArgs>>): Prisma__ordersClient<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Orders.
+     * @param {ordersCreateManyArgs} args - Arguments to create many Orders.
+     * @example
+     * // Create many Orders
+     * const orders = await prisma.orders.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ordersCreateManyArgs>(args?: SelectSubset<T, ordersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Orders.
+     * @param {ordersDeleteArgs} args - Arguments to delete one Orders.
+     * @example
+     * // Delete one Orders
+     * const Orders = await prisma.orders.delete({
+     *   where: {
+     *     // ... filter to delete one Orders
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ordersDeleteArgs>(args: SelectSubset<T, ordersDeleteArgs<ExtArgs>>): Prisma__ordersClient<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Orders.
+     * @param {ordersUpdateArgs} args - Arguments to update one Orders.
+     * @example
+     * // Update one Orders
+     * const orders = await prisma.orders.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ordersUpdateArgs>(args: SelectSubset<T, ordersUpdateArgs<ExtArgs>>): Prisma__ordersClient<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Orders.
+     * @param {ordersDeleteManyArgs} args - Arguments to filter Orders to delete.
+     * @example
+     * // Delete a few Orders
+     * const { count } = await prisma.orders.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ordersDeleteManyArgs>(args?: SelectSubset<T, ordersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Orders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ordersUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Orders
+     * const orders = await prisma.orders.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ordersUpdateManyArgs>(args: SelectSubset<T, ordersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Orders.
+     * @param {ordersUpsertArgs} args - Arguments to update or create a Orders.
+     * @example
+     * // Update or create a Orders
+     * const orders = await prisma.orders.upsert({
+     *   create: {
+     *     // ... data to create a Orders
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Orders we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ordersUpsertArgs>(args: SelectSubset<T, ordersUpsertArgs<ExtArgs>>): Prisma__ordersClient<$Result.GetResult<Prisma.$ordersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Orders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ordersCountArgs} args - Arguments to filter Orders to count.
+     * @example
+     * // Count the number of Orders
+     * const count = await prisma.orders.count({
+     *   where: {
+     *     // ... the filter for the Orders we want to count
+     *   }
+     * })
+    **/
+    count<T extends ordersCountArgs>(
+      args?: Subset<T, ordersCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OrdersCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Orders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrdersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OrdersAggregateArgs>(args: Subset<T, OrdersAggregateArgs>): Prisma.PrismaPromise<GetOrdersAggregateType<T>>
+
+    /**
+     * Group by Orders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ordersGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ordersGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ordersGroupByArgs['orderBy'] }
+        : { orderBy?: ordersGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ordersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrdersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the orders model
+   */
+  readonly fields: ordersFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for orders.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ordersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    users<T extends orders$usersArgs<ExtArgs> = {}>(args?: Subset<T, orders$usersArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    food<T extends orders$foodArgs<ExtArgs> = {}>(args?: Subset<T, orders$foodArgs<ExtArgs>>): Prisma__foodClient<$Result.GetResult<Prisma.$foodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the orders model
+   */
+  interface ordersFieldRefs {
+    readonly orderId: FieldRef<"orders", 'Int'>
+    readonly userId: FieldRef<"orders", 'Int'>
+    readonly foodId: FieldRef<"orders", 'Int'>
+    readonly amount: FieldRef<"orders", 'Int'>
+    readonly code: FieldRef<"orders", 'String'>
+    readonly arrsubId: FieldRef<"orders", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * orders findUnique
+   */
+  export type ordersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * Filter, which orders to fetch.
+     */
+    where: ordersWhereUniqueInput
+  }
+
+  /**
+   * orders findUniqueOrThrow
+   */
+  export type ordersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * Filter, which orders to fetch.
+     */
+    where: ordersWhereUniqueInput
+  }
+
+  /**
+   * orders findFirst
+   */
+  export type ordersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * Filter, which orders to fetch.
+     */
+    where?: ordersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of orders to fetch.
+     */
+    orderBy?: ordersOrderByWithRelationInput | ordersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for orders.
+     */
+    cursor?: ordersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` orders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` orders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of orders.
+     */
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
+  }
+
+  /**
+   * orders findFirstOrThrow
+   */
+  export type ordersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * Filter, which orders to fetch.
+     */
+    where?: ordersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of orders to fetch.
+     */
+    orderBy?: ordersOrderByWithRelationInput | ordersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for orders.
+     */
+    cursor?: ordersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` orders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` orders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of orders.
+     */
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
+  }
+
+  /**
+   * orders findMany
+   */
+  export type ordersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * Filter, which orders to fetch.
+     */
+    where?: ordersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of orders to fetch.
+     */
+    orderBy?: ordersOrderByWithRelationInput | ordersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing orders.
+     */
+    cursor?: ordersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` orders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` orders.
+     */
+    skip?: number
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
+  }
+
+  /**
+   * orders create
+   */
+  export type ordersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * The data needed to create a orders.
+     */
+    data?: XOR<ordersCreateInput, ordersUncheckedCreateInput>
+  }
+
+  /**
+   * orders createMany
+   */
+  export type ordersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many orders.
+     */
+    data: ordersCreateManyInput | ordersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * orders update
+   */
+  export type ordersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * The data needed to update a orders.
+     */
+    data: XOR<ordersUpdateInput, ordersUncheckedUpdateInput>
+    /**
+     * Choose, which orders to update.
+     */
+    where: ordersWhereUniqueInput
+  }
+
+  /**
+   * orders updateMany
+   */
+  export type ordersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update orders.
+     */
+    data: XOR<ordersUpdateManyMutationInput, ordersUncheckedUpdateManyInput>
+    /**
+     * Filter which orders to update
+     */
+    where?: ordersWhereInput
+    /**
+     * Limit how many orders to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * orders upsert
+   */
+  export type ordersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * The filter to search for the orders to update in case it exists.
+     */
+    where: ordersWhereUniqueInput
+    /**
+     * In case the orders found by the `where` argument doesn't exist, create a new orders with this data.
+     */
+    create: XOR<ordersCreateInput, ordersUncheckedCreateInput>
+    /**
+     * In case the orders was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ordersUpdateInput, ordersUncheckedUpdateInput>
+  }
+
+  /**
+   * orders delete
+   */
+  export type ordersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+    /**
+     * Filter which orders to delete.
+     */
+    where: ordersWhereUniqueInput
+  }
+
+  /**
+   * orders deleteMany
+   */
+  export type ordersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which orders to delete
+     */
+    where?: ordersWhereInput
+    /**
+     * Limit how many orders to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * orders.users
+   */
+  export type orders$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users
+     */
+    select?: usersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users
+     */
+    omit?: usersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    where?: usersWhereInput
+  }
+
+  /**
+   * orders.food
+   */
+  export type orders$foodArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the food
+     */
+    select?: foodSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the food
+     */
+    omit?: foodOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: foodInclude<ExtArgs> | null
+    where?: foodWhereInput
+  }
+
+  /**
+   * orders without action
+   */
+  export type ordersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the orders
+     */
+    select?: ordersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the orders
+     */
+    omit?: ordersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ordersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model like_res_2
+   */
+
+  export type AggregateLike_res_2 = {
+    _count: Like_res_2CountAggregateOutputType | null
+    _avg: Like_res_2AvgAggregateOutputType | null
+    _sum: Like_res_2SumAggregateOutputType | null
+    _min: Like_res_2MinAggregateOutputType | null
+    _max: Like_res_2MaxAggregateOutputType | null
+  }
+
+  export type Like_res_2AvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    resId: number | null
+  }
+
+  export type Like_res_2SumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    resId: number | null
+  }
+
+  export type Like_res_2MinAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    resId: number | null
+    datelike: Date | null
+    isLike: boolean | null
+  }
+
+  export type Like_res_2MaxAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    resId: number | null
+    datelike: Date | null
+    isLike: boolean | null
+  }
+
+  export type Like_res_2CountAggregateOutputType = {
+    id: number
+    userId: number
+    resId: number
+    datelike: number
+    isLike: number
+    _all: number
+  }
+
+
+  export type Like_res_2AvgAggregateInputType = {
+    id?: true
+    userId?: true
+    resId?: true
+  }
+
+  export type Like_res_2SumAggregateInputType = {
+    id?: true
+    userId?: true
+    resId?: true
+  }
+
+  export type Like_res_2MinAggregateInputType = {
+    id?: true
+    userId?: true
+    resId?: true
+    datelike?: true
+    isLike?: true
+  }
+
+  export type Like_res_2MaxAggregateInputType = {
+    id?: true
+    userId?: true
+    resId?: true
+    datelike?: true
+    isLike?: true
+  }
+
+  export type Like_res_2CountAggregateInputType = {
+    id?: true
+    userId?: true
+    resId?: true
+    datelike?: true
+    isLike?: true
+    _all?: true
+  }
+
+  export type Like_res_2AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which like_res_2 to aggregate.
+     */
+    where?: like_res_2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of like_res_2s to fetch.
+     */
+    orderBy?: like_res_2OrderByWithRelationInput | like_res_2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: like_res_2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` like_res_2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` like_res_2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned like_res_2s
+    **/
+    _count?: true | Like_res_2CountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Like_res_2AvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Like_res_2SumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Like_res_2MinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Like_res_2MaxAggregateInputType
+  }
+
+  export type GetLike_res_2AggregateType<T extends Like_res_2AggregateArgs> = {
+        [P in keyof T & keyof AggregateLike_res_2]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLike_res_2[P]>
+      : GetScalarType<T[P], AggregateLike_res_2[P]>
+  }
+
+
+
+
+  export type like_res_2GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: like_res_2WhereInput
+    orderBy?: like_res_2OrderByWithAggregationInput | like_res_2OrderByWithAggregationInput[]
+    by: Like_res_2ScalarFieldEnum[] | Like_res_2ScalarFieldEnum
+    having?: like_res_2ScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Like_res_2CountAggregateInputType | true
+    _avg?: Like_res_2AvgAggregateInputType
+    _sum?: Like_res_2SumAggregateInputType
+    _min?: Like_res_2MinAggregateInputType
+    _max?: Like_res_2MaxAggregateInputType
+  }
+
+  export type Like_res_2GroupByOutputType = {
+    id: number
+    userId: number | null
+    resId: number | null
+    datelike: Date | null
+    isLike: boolean | null
+    _count: Like_res_2CountAggregateOutputType | null
+    _avg: Like_res_2AvgAggregateOutputType | null
+    _sum: Like_res_2SumAggregateOutputType | null
+    _min: Like_res_2MinAggregateOutputType | null
+    _max: Like_res_2MaxAggregateOutputType | null
+  }
+
+  type GetLike_res_2GroupByPayload<T extends like_res_2GroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Like_res_2GroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Like_res_2GroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Like_res_2GroupByOutputType[P]>
+            : GetScalarType<T[P], Like_res_2GroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type like_res_2Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    resId?: boolean
+    datelike?: boolean
+    isLike?: boolean
+    users?: boolean | like_res_2$usersArgs<ExtArgs>
+    restaurant?: boolean | like_res_2$restaurantArgs<ExtArgs>
+  }, ExtArgs["result"]["like_res_2"]>
+
+
+
+  export type like_res_2SelectScalar = {
+    id?: boolean
+    userId?: boolean
+    resId?: boolean
+    datelike?: boolean
+    isLike?: boolean
+  }
+
+  export type like_res_2Omit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "resId" | "datelike" | "isLike", ExtArgs["result"]["like_res_2"]>
+  export type like_res_2Include<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | like_res_2$usersArgs<ExtArgs>
+    restaurant?: boolean | like_res_2$restaurantArgs<ExtArgs>
+  }
+
+  export type $like_res_2Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "like_res_2"
+    objects: {
+      users: Prisma.$usersPayload<ExtArgs> | null
+      restaurant: Prisma.$restaurantPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      userId: number | null
+      resId: number | null
+      datelike: Date | null
+      isLike: boolean | null
+    }, ExtArgs["result"]["like_res_2"]>
+    composites: {}
+  }
+
+  type like_res_2GetPayload<S extends boolean | null | undefined | like_res_2DefaultArgs> = $Result.GetResult<Prisma.$like_res_2Payload, S>
+
+  type like_res_2CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<like_res_2FindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Like_res_2CountAggregateInputType | true
+    }
+
+  export interface like_res_2Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['like_res_2'], meta: { name: 'like_res_2' } }
+    /**
+     * Find zero or one Like_res_2 that matches the filter.
+     * @param {like_res_2FindUniqueArgs} args - Arguments to find a Like_res_2
+     * @example
+     * // Get one Like_res_2
+     * const like_res_2 = await prisma.like_res_2.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends like_res_2FindUniqueArgs>(args: SelectSubset<T, like_res_2FindUniqueArgs<ExtArgs>>): Prisma__like_res_2Client<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Like_res_2 that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {like_res_2FindUniqueOrThrowArgs} args - Arguments to find a Like_res_2
+     * @example
+     * // Get one Like_res_2
+     * const like_res_2 = await prisma.like_res_2.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends like_res_2FindUniqueOrThrowArgs>(args: SelectSubset<T, like_res_2FindUniqueOrThrowArgs<ExtArgs>>): Prisma__like_res_2Client<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Like_res_2 that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_res_2FindFirstArgs} args - Arguments to find a Like_res_2
+     * @example
+     * // Get one Like_res_2
+     * const like_res_2 = await prisma.like_res_2.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends like_res_2FindFirstArgs>(args?: SelectSubset<T, like_res_2FindFirstArgs<ExtArgs>>): Prisma__like_res_2Client<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Like_res_2 that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_res_2FindFirstOrThrowArgs} args - Arguments to find a Like_res_2
+     * @example
+     * // Get one Like_res_2
+     * const like_res_2 = await prisma.like_res_2.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends like_res_2FindFirstOrThrowArgs>(args?: SelectSubset<T, like_res_2FindFirstOrThrowArgs<ExtArgs>>): Prisma__like_res_2Client<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Like_res_2s that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_res_2FindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Like_res_2s
+     * const like_res_2s = await prisma.like_res_2.findMany()
+     * 
+     * // Get first 10 Like_res_2s
+     * const like_res_2s = await prisma.like_res_2.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const like_res_2WithIdOnly = await prisma.like_res_2.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends like_res_2FindManyArgs>(args?: SelectSubset<T, like_res_2FindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Like_res_2.
+     * @param {like_res_2CreateArgs} args - Arguments to create a Like_res_2.
+     * @example
+     * // Create one Like_res_2
+     * const Like_res_2 = await prisma.like_res_2.create({
+     *   data: {
+     *     // ... data to create a Like_res_2
+     *   }
+     * })
+     * 
+     */
+    create<T extends like_res_2CreateArgs>(args: SelectSubset<T, like_res_2CreateArgs<ExtArgs>>): Prisma__like_res_2Client<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Like_res_2s.
+     * @param {like_res_2CreateManyArgs} args - Arguments to create many Like_res_2s.
+     * @example
+     * // Create many Like_res_2s
+     * const like_res_2 = await prisma.like_res_2.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends like_res_2CreateManyArgs>(args?: SelectSubset<T, like_res_2CreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Like_res_2.
+     * @param {like_res_2DeleteArgs} args - Arguments to delete one Like_res_2.
+     * @example
+     * // Delete one Like_res_2
+     * const Like_res_2 = await prisma.like_res_2.delete({
+     *   where: {
+     *     // ... filter to delete one Like_res_2
+     *   }
+     * })
+     * 
+     */
+    delete<T extends like_res_2DeleteArgs>(args: SelectSubset<T, like_res_2DeleteArgs<ExtArgs>>): Prisma__like_res_2Client<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Like_res_2.
+     * @param {like_res_2UpdateArgs} args - Arguments to update one Like_res_2.
+     * @example
+     * // Update one Like_res_2
+     * const like_res_2 = await prisma.like_res_2.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends like_res_2UpdateArgs>(args: SelectSubset<T, like_res_2UpdateArgs<ExtArgs>>): Prisma__like_res_2Client<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Like_res_2s.
+     * @param {like_res_2DeleteManyArgs} args - Arguments to filter Like_res_2s to delete.
+     * @example
+     * // Delete a few Like_res_2s
+     * const { count } = await prisma.like_res_2.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends like_res_2DeleteManyArgs>(args?: SelectSubset<T, like_res_2DeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Like_res_2s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_res_2UpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Like_res_2s
+     * const like_res_2 = await prisma.like_res_2.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends like_res_2UpdateManyArgs>(args: SelectSubset<T, like_res_2UpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Like_res_2.
+     * @param {like_res_2UpsertArgs} args - Arguments to update or create a Like_res_2.
+     * @example
+     * // Update or create a Like_res_2
+     * const like_res_2 = await prisma.like_res_2.upsert({
+     *   create: {
+     *     // ... data to create a Like_res_2
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Like_res_2 we want to update
+     *   }
+     * })
+     */
+    upsert<T extends like_res_2UpsertArgs>(args: SelectSubset<T, like_res_2UpsertArgs<ExtArgs>>): Prisma__like_res_2Client<$Result.GetResult<Prisma.$like_res_2Payload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Like_res_2s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_res_2CountArgs} args - Arguments to filter Like_res_2s to count.
+     * @example
+     * // Count the number of Like_res_2s
+     * const count = await prisma.like_res_2.count({
+     *   where: {
+     *     // ... the filter for the Like_res_2s we want to count
+     *   }
+     * })
+    **/
+    count<T extends like_res_2CountArgs>(
+      args?: Subset<T, like_res_2CountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Like_res_2CountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Like_res_2.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Like_res_2AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Like_res_2AggregateArgs>(args: Subset<T, Like_res_2AggregateArgs>): Prisma.PrismaPromise<GetLike_res_2AggregateType<T>>
+
+    /**
+     * Group by Like_res_2.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {like_res_2GroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends like_res_2GroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: like_res_2GroupByArgs['orderBy'] }
+        : { orderBy?: like_res_2GroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, like_res_2GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLike_res_2GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the like_res_2 model
+   */
+  readonly fields: like_res_2FieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for like_res_2.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__like_res_2Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    users<T extends like_res_2$usersArgs<ExtArgs> = {}>(args?: Subset<T, like_res_2$usersArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    restaurant<T extends like_res_2$restaurantArgs<ExtArgs> = {}>(args?: Subset<T, like_res_2$restaurantArgs<ExtArgs>>): Prisma__restaurantClient<$Result.GetResult<Prisma.$restaurantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the like_res_2 model
+   */
+  interface like_res_2FieldRefs {
+    readonly id: FieldRef<"like_res_2", 'Int'>
+    readonly userId: FieldRef<"like_res_2", 'Int'>
+    readonly resId: FieldRef<"like_res_2", 'Int'>
+    readonly datelike: FieldRef<"like_res_2", 'DateTime'>
+    readonly isLike: FieldRef<"like_res_2", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * like_res_2 findUnique
+   */
+  export type like_res_2FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * Filter, which like_res_2 to fetch.
+     */
+    where: like_res_2WhereUniqueInput
+  }
+
+  /**
+   * like_res_2 findUniqueOrThrow
+   */
+  export type like_res_2FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * Filter, which like_res_2 to fetch.
+     */
+    where: like_res_2WhereUniqueInput
+  }
+
+  /**
+   * like_res_2 findFirst
+   */
+  export type like_res_2FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * Filter, which like_res_2 to fetch.
+     */
+    where?: like_res_2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of like_res_2s to fetch.
+     */
+    orderBy?: like_res_2OrderByWithRelationInput | like_res_2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for like_res_2s.
+     */
+    cursor?: like_res_2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` like_res_2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` like_res_2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of like_res_2s.
+     */
+    distinct?: Like_res_2ScalarFieldEnum | Like_res_2ScalarFieldEnum[]
+  }
+
+  /**
+   * like_res_2 findFirstOrThrow
+   */
+  export type like_res_2FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * Filter, which like_res_2 to fetch.
+     */
+    where?: like_res_2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of like_res_2s to fetch.
+     */
+    orderBy?: like_res_2OrderByWithRelationInput | like_res_2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for like_res_2s.
+     */
+    cursor?: like_res_2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` like_res_2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` like_res_2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of like_res_2s.
+     */
+    distinct?: Like_res_2ScalarFieldEnum | Like_res_2ScalarFieldEnum[]
+  }
+
+  /**
+   * like_res_2 findMany
+   */
+  export type like_res_2FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * Filter, which like_res_2s to fetch.
+     */
+    where?: like_res_2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of like_res_2s to fetch.
+     */
+    orderBy?: like_res_2OrderByWithRelationInput | like_res_2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing like_res_2s.
+     */
+    cursor?: like_res_2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` like_res_2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` like_res_2s.
+     */
+    skip?: number
+    distinct?: Like_res_2ScalarFieldEnum | Like_res_2ScalarFieldEnum[]
+  }
+
+  /**
+   * like_res_2 create
+   */
+  export type like_res_2CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * The data needed to create a like_res_2.
+     */
+    data?: XOR<like_res_2CreateInput, like_res_2UncheckedCreateInput>
+  }
+
+  /**
+   * like_res_2 createMany
+   */
+  export type like_res_2CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many like_res_2s.
+     */
+    data: like_res_2CreateManyInput | like_res_2CreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * like_res_2 update
+   */
+  export type like_res_2UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * The data needed to update a like_res_2.
+     */
+    data: XOR<like_res_2UpdateInput, like_res_2UncheckedUpdateInput>
+    /**
+     * Choose, which like_res_2 to update.
+     */
+    where: like_res_2WhereUniqueInput
+  }
+
+  /**
+   * like_res_2 updateMany
+   */
+  export type like_res_2UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update like_res_2s.
+     */
+    data: XOR<like_res_2UpdateManyMutationInput, like_res_2UncheckedUpdateManyInput>
+    /**
+     * Filter which like_res_2s to update
+     */
+    where?: like_res_2WhereInput
+    /**
+     * Limit how many like_res_2s to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * like_res_2 upsert
+   */
+  export type like_res_2UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * The filter to search for the like_res_2 to update in case it exists.
+     */
+    where: like_res_2WhereUniqueInput
+    /**
+     * In case the like_res_2 found by the `where` argument doesn't exist, create a new like_res_2 with this data.
+     */
+    create: XOR<like_res_2CreateInput, like_res_2UncheckedCreateInput>
+    /**
+     * In case the like_res_2 was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<like_res_2UpdateInput, like_res_2UncheckedUpdateInput>
+  }
+
+  /**
+   * like_res_2 delete
+   */
+  export type like_res_2DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
+    /**
+     * Filter which like_res_2 to delete.
+     */
+    where: like_res_2WhereUniqueInput
+  }
+
+  /**
+   * like_res_2 deleteMany
+   */
+  export type like_res_2DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which like_res_2s to delete
+     */
+    where?: like_res_2WhereInput
+    /**
+     * Limit how many like_res_2s to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * like_res_2.users
+   */
+  export type like_res_2$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users
+     */
+    select?: usersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users
+     */
+    omit?: usersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usersInclude<ExtArgs> | null
+    where?: usersWhereInput
+  }
+
+  /**
+   * like_res_2.restaurant
+   */
+  export type like_res_2$restaurantArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the restaurant
+     */
+    select?: restaurantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the restaurant
+     */
+    omit?: restaurantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: restaurantInclude<ExtArgs> | null
+    where?: restaurantWhereInput
+  }
+
+  /**
+   * like_res_2 without action
+   */
+  export type like_res_2DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the like_res_2
+     */
+    select?: like_res_2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the like_res_2
+     */
+    omit?: like_res_2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: like_res_2Include<ExtArgs> | null
   }
 
 
@@ -6061,6 +10788,26 @@ export namespace Prisma {
   export type Food_typeScalarFieldEnum = (typeof Food_typeScalarFieldEnum)[keyof typeof Food_typeScalarFieldEnum]
 
 
+  export const Like_resScalarFieldEnum: {
+    userId: 'userId',
+    resId: 'resId',
+    datelike: 'datelike',
+    isLike: 'isLike'
+  };
+
+  export type Like_resScalarFieldEnum = (typeof Like_resScalarFieldEnum)[keyof typeof Like_resScalarFieldEnum]
+
+
+  export const Rate_resScalarFieldEnum: {
+    userId: 'userId',
+    resId: 'resId',
+    amount: 'amount',
+    daterate: 'daterate'
+  };
+
+  export type Rate_resScalarFieldEnum = (typeof Rate_resScalarFieldEnum)[keyof typeof Rate_resScalarFieldEnum]
+
+
   export const RestaurantScalarFieldEnum: {
     resId: 'resId',
     resname: 'resname',
@@ -6089,6 +10836,29 @@ export namespace Prisma {
   };
 
   export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
+  export const OrdersScalarFieldEnum: {
+    orderId: 'orderId',
+    userId: 'userId',
+    foodId: 'foodId',
+    amount: 'amount',
+    code: 'code',
+    arrsubId: 'arrsubId'
+  };
+
+  export type OrdersScalarFieldEnum = (typeof OrdersScalarFieldEnum)[keyof typeof OrdersScalarFieldEnum]
+
+
+  export const Like_res_2ScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    resId: 'resId',
+    datelike: 'datelike',
+    isLike: 'isLike'
+  };
+
+  export type Like_res_2ScalarFieldEnum = (typeof Like_res_2ScalarFieldEnum)[keyof typeof Like_res_2ScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -6148,6 +10918,14 @@ export namespace Prisma {
   export type usersOrderByRelevanceFieldEnum = (typeof usersOrderByRelevanceFieldEnum)[keyof typeof usersOrderByRelevanceFieldEnum]
 
 
+  export const ordersOrderByRelevanceFieldEnum: {
+    code: 'code',
+    arrsubId: 'arrsubId'
+  };
+
+  export type ordersOrderByRelevanceFieldEnum = (typeof ordersOrderByRelevanceFieldEnum)[keyof typeof ordersOrderByRelevanceFieldEnum]
+
+
   /**
    * Field references
    */
@@ -6172,6 +10950,20 @@ export namespace Prisma {
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
   /**
    * Deep Input Types
    */
@@ -6188,6 +10980,7 @@ export namespace Prisma {
     desc?: StringNullableFilter<"food"> | string | null
     typeId?: IntNullableFilter<"food"> | number | null
     food_type?: XOR<Food_typeNullableScalarRelationFilter, food_typeWhereInput> | null
+    orders?: OrdersListRelationFilter
     sub_food?: Sub_foodListRelationFilter
   }
 
@@ -6199,6 +10992,7 @@ export namespace Prisma {
     desc?: SortOrderInput | SortOrder
     typeId?: SortOrderInput | SortOrder
     food_type?: food_typeOrderByWithRelationInput
+    orders?: ordersOrderByRelationAggregateInput
     sub_food?: sub_foodOrderByRelationAggregateInput
     _relevance?: foodOrderByRelevanceInput
   }
@@ -6214,6 +11008,7 @@ export namespace Prisma {
     desc?: StringNullableFilter<"food"> | string | null
     typeId?: IntNullableFilter<"food"> | number | null
     food_type?: XOR<Food_typeNullableScalarRelationFilter, food_typeWhereInput> | null
+    orders?: OrdersListRelationFilter
     sub_food?: Sub_foodListRelationFilter
   }, "foodId">
 
@@ -6286,6 +11081,118 @@ export namespace Prisma {
     typename?: StringNullableWithAggregatesFilter<"food_type"> | string | null
   }
 
+  export type like_resWhereInput = {
+    AND?: like_resWhereInput | like_resWhereInput[]
+    OR?: like_resWhereInput[]
+    NOT?: like_resWhereInput | like_resWhereInput[]
+    userId?: IntFilter<"like_res"> | number
+    resId?: IntFilter<"like_res"> | number
+    datelike?: DateTimeNullableFilter<"like_res"> | Date | string | null
+    isLike?: BoolNullableFilter<"like_res"> | boolean | null
+    users?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    restaurant?: XOR<RestaurantScalarRelationFilter, restaurantWhereInput>
+  }
+
+  export type like_resOrderByWithRelationInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    datelike?: SortOrderInput | SortOrder
+    isLike?: SortOrderInput | SortOrder
+    users?: usersOrderByWithRelationInput
+    restaurant?: restaurantOrderByWithRelationInput
+  }
+
+  export type like_resWhereUniqueInput = Prisma.AtLeast<{
+    userId_resId?: like_resUserIdResIdCompoundUniqueInput
+    AND?: like_resWhereInput | like_resWhereInput[]
+    OR?: like_resWhereInput[]
+    NOT?: like_resWhereInput | like_resWhereInput[]
+    userId?: IntFilter<"like_res"> | number
+    resId?: IntFilter<"like_res"> | number
+    datelike?: DateTimeNullableFilter<"like_res"> | Date | string | null
+    isLike?: BoolNullableFilter<"like_res"> | boolean | null
+    users?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    restaurant?: XOR<RestaurantScalarRelationFilter, restaurantWhereInput>
+  }, "userId_resId">
+
+  export type like_resOrderByWithAggregationInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    datelike?: SortOrderInput | SortOrder
+    isLike?: SortOrderInput | SortOrder
+    _count?: like_resCountOrderByAggregateInput
+    _avg?: like_resAvgOrderByAggregateInput
+    _max?: like_resMaxOrderByAggregateInput
+    _min?: like_resMinOrderByAggregateInput
+    _sum?: like_resSumOrderByAggregateInput
+  }
+
+  export type like_resScalarWhereWithAggregatesInput = {
+    AND?: like_resScalarWhereWithAggregatesInput | like_resScalarWhereWithAggregatesInput[]
+    OR?: like_resScalarWhereWithAggregatesInput[]
+    NOT?: like_resScalarWhereWithAggregatesInput | like_resScalarWhereWithAggregatesInput[]
+    userId?: IntWithAggregatesFilter<"like_res"> | number
+    resId?: IntWithAggregatesFilter<"like_res"> | number
+    datelike?: DateTimeNullableWithAggregatesFilter<"like_res"> | Date | string | null
+    isLike?: BoolNullableWithAggregatesFilter<"like_res"> | boolean | null
+  }
+
+  export type rate_resWhereInput = {
+    AND?: rate_resWhereInput | rate_resWhereInput[]
+    OR?: rate_resWhereInput[]
+    NOT?: rate_resWhereInput | rate_resWhereInput[]
+    userId?: IntFilter<"rate_res"> | number
+    resId?: IntFilter<"rate_res"> | number
+    amount?: IntNullableFilter<"rate_res"> | number | null
+    daterate?: DateTimeNullableFilter<"rate_res"> | Date | string | null
+    users?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    restaurant?: XOR<RestaurantScalarRelationFilter, restaurantWhereInput>
+  }
+
+  export type rate_resOrderByWithRelationInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    amount?: SortOrderInput | SortOrder
+    daterate?: SortOrderInput | SortOrder
+    users?: usersOrderByWithRelationInput
+    restaurant?: restaurantOrderByWithRelationInput
+  }
+
+  export type rate_resWhereUniqueInput = Prisma.AtLeast<{
+    userId_resId?: rate_resUserIdResIdCompoundUniqueInput
+    AND?: rate_resWhereInput | rate_resWhereInput[]
+    OR?: rate_resWhereInput[]
+    NOT?: rate_resWhereInput | rate_resWhereInput[]
+    userId?: IntFilter<"rate_res"> | number
+    resId?: IntFilter<"rate_res"> | number
+    amount?: IntNullableFilter<"rate_res"> | number | null
+    daterate?: DateTimeNullableFilter<"rate_res"> | Date | string | null
+    users?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    restaurant?: XOR<RestaurantScalarRelationFilter, restaurantWhereInput>
+  }, "userId_resId">
+
+  export type rate_resOrderByWithAggregationInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    amount?: SortOrderInput | SortOrder
+    daterate?: SortOrderInput | SortOrder
+    _count?: rate_resCountOrderByAggregateInput
+    _avg?: rate_resAvgOrderByAggregateInput
+    _max?: rate_resMaxOrderByAggregateInput
+    _min?: rate_resMinOrderByAggregateInput
+    _sum?: rate_resSumOrderByAggregateInput
+  }
+
+  export type rate_resScalarWhereWithAggregatesInput = {
+    AND?: rate_resScalarWhereWithAggregatesInput | rate_resScalarWhereWithAggregatesInput[]
+    OR?: rate_resScalarWhereWithAggregatesInput[]
+    NOT?: rate_resScalarWhereWithAggregatesInput | rate_resScalarWhereWithAggregatesInput[]
+    userId?: IntWithAggregatesFilter<"rate_res"> | number
+    resId?: IntWithAggregatesFilter<"rate_res"> | number
+    amount?: IntNullableWithAggregatesFilter<"rate_res"> | number | null
+    daterate?: DateTimeNullableWithAggregatesFilter<"rate_res"> | Date | string | null
+  }
+
   export type restaurantWhereInput = {
     AND?: restaurantWhereInput | restaurantWhereInput[]
     OR?: restaurantWhereInput[]
@@ -6294,6 +11201,9 @@ export namespace Prisma {
     resname?: StringNullableFilter<"restaurant"> | string | null
     image?: StringNullableFilter<"restaurant"> | string | null
     desc?: StringNullableFilter<"restaurant"> | string | null
+    like_res?: Like_resListRelationFilter
+    like_res_2?: Like_res_2ListRelationFilter
+    rate_res?: Rate_resListRelationFilter
   }
 
   export type restaurantOrderByWithRelationInput = {
@@ -6301,6 +11211,9 @@ export namespace Prisma {
     resname?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     desc?: SortOrderInput | SortOrder
+    like_res?: like_resOrderByRelationAggregateInput
+    like_res_2?: like_res_2OrderByRelationAggregateInput
+    rate_res?: rate_resOrderByRelationAggregateInput
     _relevance?: restaurantOrderByRelevanceInput
   }
 
@@ -6312,6 +11225,9 @@ export namespace Prisma {
     resname?: StringNullableFilter<"restaurant"> | string | null
     image?: StringNullableFilter<"restaurant"> | string | null
     desc?: StringNullableFilter<"restaurant"> | string | null
+    like_res?: Like_resListRelationFilter
+    like_res_2?: Like_res_2ListRelationFilter
+    rate_res?: Rate_resListRelationFilter
   }, "resId">
 
   export type restaurantOrderByWithAggregationInput = {
@@ -6397,6 +11313,10 @@ export namespace Prisma {
     fullname?: StringNullableFilter<"users"> | string | null
     email?: StringNullableFilter<"users"> | string | null
     password?: StringNullableFilter<"users"> | string | null
+    like_res?: Like_resListRelationFilter
+    like_res_2?: Like_res_2ListRelationFilter
+    orders?: OrdersListRelationFilter
+    rate_res?: Rate_resListRelationFilter
   }
 
   export type usersOrderByWithRelationInput = {
@@ -6404,6 +11324,10 @@ export namespace Prisma {
     fullname?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
+    like_res?: like_resOrderByRelationAggregateInput
+    like_res_2?: like_res_2OrderByRelationAggregateInput
+    orders?: ordersOrderByRelationAggregateInput
+    rate_res?: rate_resOrderByRelationAggregateInput
     _relevance?: usersOrderByRelevanceInput
   }
 
@@ -6415,6 +11339,10 @@ export namespace Prisma {
     fullname?: StringNullableFilter<"users"> | string | null
     email?: StringNullableFilter<"users"> | string | null
     password?: StringNullableFilter<"users"> | string | null
+    like_res?: Like_resListRelationFilter
+    like_res_2?: Like_res_2ListRelationFilter
+    orders?: OrdersListRelationFilter
+    rate_res?: Rate_resListRelationFilter
   }, "userId">
 
   export type usersOrderByWithAggregationInput = {
@@ -6439,12 +11367,140 @@ export namespace Prisma {
     password?: StringNullableWithAggregatesFilter<"users"> | string | null
   }
 
+  export type ordersWhereInput = {
+    AND?: ordersWhereInput | ordersWhereInput[]
+    OR?: ordersWhereInput[]
+    NOT?: ordersWhereInput | ordersWhereInput[]
+    orderId?: IntFilter<"orders"> | number
+    userId?: IntNullableFilter<"orders"> | number | null
+    foodId?: IntNullableFilter<"orders"> | number | null
+    amount?: IntNullableFilter<"orders"> | number | null
+    code?: StringNullableFilter<"orders"> | string | null
+    arrsubId?: StringNullableFilter<"orders"> | string | null
+    users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+    food?: XOR<FoodNullableScalarRelationFilter, foodWhereInput> | null
+  }
+
+  export type ordersOrderByWithRelationInput = {
+    orderId?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    foodId?: SortOrderInput | SortOrder
+    amount?: SortOrderInput | SortOrder
+    code?: SortOrderInput | SortOrder
+    arrsubId?: SortOrderInput | SortOrder
+    users?: usersOrderByWithRelationInput
+    food?: foodOrderByWithRelationInput
+    _relevance?: ordersOrderByRelevanceInput
+  }
+
+  export type ordersWhereUniqueInput = Prisma.AtLeast<{
+    orderId?: number
+    AND?: ordersWhereInput | ordersWhereInput[]
+    OR?: ordersWhereInput[]
+    NOT?: ordersWhereInput | ordersWhereInput[]
+    userId?: IntNullableFilter<"orders"> | number | null
+    foodId?: IntNullableFilter<"orders"> | number | null
+    amount?: IntNullableFilter<"orders"> | number | null
+    code?: StringNullableFilter<"orders"> | string | null
+    arrsubId?: StringNullableFilter<"orders"> | string | null
+    users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+    food?: XOR<FoodNullableScalarRelationFilter, foodWhereInput> | null
+  }, "orderId">
+
+  export type ordersOrderByWithAggregationInput = {
+    orderId?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    foodId?: SortOrderInput | SortOrder
+    amount?: SortOrderInput | SortOrder
+    code?: SortOrderInput | SortOrder
+    arrsubId?: SortOrderInput | SortOrder
+    _count?: ordersCountOrderByAggregateInput
+    _avg?: ordersAvgOrderByAggregateInput
+    _max?: ordersMaxOrderByAggregateInput
+    _min?: ordersMinOrderByAggregateInput
+    _sum?: ordersSumOrderByAggregateInput
+  }
+
+  export type ordersScalarWhereWithAggregatesInput = {
+    AND?: ordersScalarWhereWithAggregatesInput | ordersScalarWhereWithAggregatesInput[]
+    OR?: ordersScalarWhereWithAggregatesInput[]
+    NOT?: ordersScalarWhereWithAggregatesInput | ordersScalarWhereWithAggregatesInput[]
+    orderId?: IntWithAggregatesFilter<"orders"> | number
+    userId?: IntNullableWithAggregatesFilter<"orders"> | number | null
+    foodId?: IntNullableWithAggregatesFilter<"orders"> | number | null
+    amount?: IntNullableWithAggregatesFilter<"orders"> | number | null
+    code?: StringNullableWithAggregatesFilter<"orders"> | string | null
+    arrsubId?: StringNullableWithAggregatesFilter<"orders"> | string | null
+  }
+
+  export type like_res_2WhereInput = {
+    AND?: like_res_2WhereInput | like_res_2WhereInput[]
+    OR?: like_res_2WhereInput[]
+    NOT?: like_res_2WhereInput | like_res_2WhereInput[]
+    id?: IntFilter<"like_res_2"> | number
+    userId?: IntNullableFilter<"like_res_2"> | number | null
+    resId?: IntNullableFilter<"like_res_2"> | number | null
+    datelike?: DateTimeNullableFilter<"like_res_2"> | Date | string | null
+    isLike?: BoolNullableFilter<"like_res_2"> | boolean | null
+    users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+    restaurant?: XOR<RestaurantNullableScalarRelationFilter, restaurantWhereInput> | null
+  }
+
+  export type like_res_2OrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    resId?: SortOrderInput | SortOrder
+    datelike?: SortOrderInput | SortOrder
+    isLike?: SortOrderInput | SortOrder
+    users?: usersOrderByWithRelationInput
+    restaurant?: restaurantOrderByWithRelationInput
+  }
+
+  export type like_res_2WhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    userId_resId?: like_res_2UserIdResIdCompoundUniqueInput
+    AND?: like_res_2WhereInput | like_res_2WhereInput[]
+    OR?: like_res_2WhereInput[]
+    NOT?: like_res_2WhereInput | like_res_2WhereInput[]
+    userId?: IntNullableFilter<"like_res_2"> | number | null
+    resId?: IntNullableFilter<"like_res_2"> | number | null
+    datelike?: DateTimeNullableFilter<"like_res_2"> | Date | string | null
+    isLike?: BoolNullableFilter<"like_res_2"> | boolean | null
+    users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
+    restaurant?: XOR<RestaurantNullableScalarRelationFilter, restaurantWhereInput> | null
+  }, "id" | "userId_resId">
+
+  export type like_res_2OrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    resId?: SortOrderInput | SortOrder
+    datelike?: SortOrderInput | SortOrder
+    isLike?: SortOrderInput | SortOrder
+    _count?: like_res_2CountOrderByAggregateInput
+    _avg?: like_res_2AvgOrderByAggregateInput
+    _max?: like_res_2MaxOrderByAggregateInput
+    _min?: like_res_2MinOrderByAggregateInput
+    _sum?: like_res_2SumOrderByAggregateInput
+  }
+
+  export type like_res_2ScalarWhereWithAggregatesInput = {
+    AND?: like_res_2ScalarWhereWithAggregatesInput | like_res_2ScalarWhereWithAggregatesInput[]
+    OR?: like_res_2ScalarWhereWithAggregatesInput[]
+    NOT?: like_res_2ScalarWhereWithAggregatesInput | like_res_2ScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"like_res_2"> | number
+    userId?: IntNullableWithAggregatesFilter<"like_res_2"> | number | null
+    resId?: IntNullableWithAggregatesFilter<"like_res_2"> | number | null
+    datelike?: DateTimeNullableWithAggregatesFilter<"like_res_2"> | Date | string | null
+    isLike?: BoolNullableWithAggregatesFilter<"like_res_2"> | boolean | null
+  }
+
   export type foodCreateInput = {
     foodname?: string | null
     image?: string | null
     price?: number | null
     desc?: string | null
     food_type?: food_typeCreateNestedOneWithoutFoodInput
+    orders?: ordersCreateNestedManyWithoutFoodInput
     sub_food?: sub_foodCreateNestedManyWithoutFoodInput
   }
 
@@ -6455,6 +11511,7 @@ export namespace Prisma {
     price?: number | null
     desc?: string | null
     typeId?: number | null
+    orders?: ordersUncheckedCreateNestedManyWithoutFoodInput
     sub_food?: sub_foodUncheckedCreateNestedManyWithoutFoodInput
   }
 
@@ -6464,6 +11521,7 @@ export namespace Prisma {
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     food_type?: food_typeUpdateOneWithoutFoodNestedInput
+    orders?: ordersUpdateManyWithoutFoodNestedInput
     sub_food?: sub_foodUpdateManyWithoutFoodNestedInput
   }
 
@@ -6474,6 +11532,7 @@ export namespace Prisma {
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: NullableIntFieldUpdateOperationsInput | number | null
+    orders?: ordersUncheckedUpdateManyWithoutFoodNestedInput
     sub_food?: sub_foodUncheckedUpdateManyWithoutFoodNestedInput
   }
 
@@ -6538,10 +11597,107 @@ export namespace Prisma {
     typename?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type like_resCreateInput = {
+    datelike?: Date | string | null
+    isLike?: boolean | null
+    users: usersCreateNestedOneWithoutLike_resInput
+    restaurant: restaurantCreateNestedOneWithoutLike_resInput
+  }
+
+  export type like_resUncheckedCreateInput = {
+    userId: number
+    resId: number
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_resUpdateInput = {
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    users?: usersUpdateOneRequiredWithoutLike_resNestedInput
+    restaurant?: restaurantUpdateOneRequiredWithoutLike_resNestedInput
+  }
+
+  export type like_resUncheckedUpdateInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    resId?: IntFieldUpdateOperationsInput | number
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_resCreateManyInput = {
+    userId: number
+    resId: number
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_resUpdateManyMutationInput = {
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_resUncheckedUpdateManyInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    resId?: IntFieldUpdateOperationsInput | number
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type rate_resCreateInput = {
+    amount?: number | null
+    daterate?: Date | string | null
+    users: usersCreateNestedOneWithoutRate_resInput
+    restaurant: restaurantCreateNestedOneWithoutRate_resInput
+  }
+
+  export type rate_resUncheckedCreateInput = {
+    userId: number
+    resId: number
+    amount?: number | null
+    daterate?: Date | string | null
+  }
+
+  export type rate_resUpdateInput = {
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    users?: usersUpdateOneRequiredWithoutRate_resNestedInput
+    restaurant?: restaurantUpdateOneRequiredWithoutRate_resNestedInput
+  }
+
+  export type rate_resUncheckedUpdateInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    resId?: IntFieldUpdateOperationsInput | number
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type rate_resCreateManyInput = {
+    userId: number
+    resId: number
+    amount?: number | null
+    daterate?: Date | string | null
+  }
+
+  export type rate_resUpdateManyMutationInput = {
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type rate_resUncheckedUpdateManyInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    resId?: IntFieldUpdateOperationsInput | number
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type restaurantCreateInput = {
     resname?: string | null
     image?: string | null
     desc?: string | null
+    like_res?: like_resCreateNestedManyWithoutRestaurantInput
+    like_res_2?: like_res_2CreateNestedManyWithoutRestaurantInput
+    rate_res?: rate_resCreateNestedManyWithoutRestaurantInput
   }
 
   export type restaurantUncheckedCreateInput = {
@@ -6549,12 +11705,18 @@ export namespace Prisma {
     resname?: string | null
     image?: string | null
     desc?: string | null
+    like_res?: like_resUncheckedCreateNestedManyWithoutRestaurantInput
+    like_res_2?: like_res_2UncheckedCreateNestedManyWithoutRestaurantInput
+    rate_res?: rate_resUncheckedCreateNestedManyWithoutRestaurantInput
   }
 
   export type restaurantUpdateInput = {
     resname?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUpdateManyWithoutRestaurantNestedInput
+    like_res_2?: like_res_2UpdateManyWithoutRestaurantNestedInput
+    rate_res?: rate_resUpdateManyWithoutRestaurantNestedInput
   }
 
   export type restaurantUncheckedUpdateInput = {
@@ -6562,6 +11724,9 @@ export namespace Prisma {
     resname?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUncheckedUpdateManyWithoutRestaurantNestedInput
+    like_res_2?: like_res_2UncheckedUpdateManyWithoutRestaurantNestedInput
+    rate_res?: rate_resUncheckedUpdateManyWithoutRestaurantNestedInput
   }
 
   export type restaurantCreateManyInput = {
@@ -6633,6 +11798,10 @@ export namespace Prisma {
     fullname?: string | null
     email?: string | null
     password?: string | null
+    like_res?: like_resCreateNestedManyWithoutUsersInput
+    like_res_2?: like_res_2CreateNestedManyWithoutUsersInput
+    orders?: ordersCreateNestedManyWithoutUsersInput
+    rate_res?: rate_resCreateNestedManyWithoutUsersInput
   }
 
   export type usersUncheckedCreateInput = {
@@ -6640,12 +11809,20 @@ export namespace Prisma {
     fullname?: string | null
     email?: string | null
     password?: string | null
+    like_res?: like_resUncheckedCreateNestedManyWithoutUsersInput
+    like_res_2?: like_res_2UncheckedCreateNestedManyWithoutUsersInput
+    orders?: ordersUncheckedCreateNestedManyWithoutUsersInput
+    rate_res?: rate_resUncheckedCreateNestedManyWithoutUsersInput
   }
 
   export type usersUpdateInput = {
     fullname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUpdateManyWithoutUsersNestedInput
+    like_res_2?: like_res_2UpdateManyWithoutUsersNestedInput
+    orders?: ordersUpdateManyWithoutUsersNestedInput
+    rate_res?: rate_resUpdateManyWithoutUsersNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
@@ -6653,6 +11830,10 @@ export namespace Prisma {
     fullname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUncheckedUpdateManyWithoutUsersNestedInput
+    like_res_2?: like_res_2UncheckedUpdateManyWithoutUsersNestedInput
+    orders?: ordersUncheckedUpdateManyWithoutUsersNestedInput
+    rate_res?: rate_resUncheckedUpdateManyWithoutUsersNestedInput
   }
 
   export type usersCreateManyInput = {
@@ -6673,6 +11854,115 @@ export namespace Prisma {
     fullname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ordersCreateInput = {
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
+    users?: usersCreateNestedOneWithoutOrdersInput
+    food?: foodCreateNestedOneWithoutOrdersInput
+  }
+
+  export type ordersUncheckedCreateInput = {
+    orderId?: number
+    userId?: number | null
+    foodId?: number | null
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
+  }
+
+  export type ordersUpdateInput = {
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+    users?: usersUpdateOneWithoutOrdersNestedInput
+    food?: foodUpdateOneWithoutOrdersNestedInput
+  }
+
+  export type ordersUncheckedUpdateInput = {
+    orderId?: IntFieldUpdateOperationsInput | number
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    foodId?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ordersCreateManyInput = {
+    orderId?: number
+    userId?: number | null
+    foodId?: number | null
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
+  }
+
+  export type ordersUpdateManyMutationInput = {
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ordersUncheckedUpdateManyInput = {
+    orderId?: IntFieldUpdateOperationsInput | number
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    foodId?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type like_res_2CreateInput = {
+    datelike?: Date | string | null
+    isLike?: boolean | null
+    users?: usersCreateNestedOneWithoutLike_res_2Input
+    restaurant?: restaurantCreateNestedOneWithoutLike_res_2Input
+  }
+
+  export type like_res_2UncheckedCreateInput = {
+    id?: number
+    userId?: number | null
+    resId?: number | null
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_res_2UpdateInput = {
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    users?: usersUpdateOneWithoutLike_res_2NestedInput
+    restaurant?: restaurantUpdateOneWithoutLike_res_2NestedInput
+  }
+
+  export type like_res_2UncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    resId?: NullableIntFieldUpdateOperationsInput | number | null
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_res_2CreateManyInput = {
+    id?: number
+    userId?: number | null
+    resId?: number | null
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_res_2UpdateManyMutationInput = {
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_res_2UncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    resId?: NullableIntFieldUpdateOperationsInput | number | null
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -6728,6 +12018,12 @@ export namespace Prisma {
     isNot?: food_typeWhereInput | null
   }
 
+  export type OrdersListRelationFilter = {
+    every?: ordersWhereInput
+    some?: ordersWhereInput
+    none?: ordersWhereInput
+  }
+
   export type Sub_foodListRelationFilter = {
     every?: sub_foodWhereInput
     some?: sub_foodWhereInput
@@ -6737,6 +12033,10 @@ export namespace Prisma {
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type ordersOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type sub_foodOrderByRelationAggregateInput = {
@@ -6893,6 +12193,158 @@ export namespace Prisma {
     typeId?: SortOrder
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type UsersScalarRelationFilter = {
+    is?: usersWhereInput
+    isNot?: usersWhereInput
+  }
+
+  export type RestaurantScalarRelationFilter = {
+    is?: restaurantWhereInput
+    isNot?: restaurantWhereInput
+  }
+
+  export type like_resUserIdResIdCompoundUniqueInput = {
+    userId: number
+    resId: number
+  }
+
+  export type like_resCountOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    datelike?: SortOrder
+    isLike?: SortOrder
+  }
+
+  export type like_resAvgOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+  }
+
+  export type like_resMaxOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    datelike?: SortOrder
+    isLike?: SortOrder
+  }
+
+  export type like_resMinOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    datelike?: SortOrder
+    isLike?: SortOrder
+  }
+
+  export type like_resSumOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type rate_resUserIdResIdCompoundUniqueInput = {
+    userId: number
+    resId: number
+  }
+
+  export type rate_resCountOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    amount?: SortOrder
+    daterate?: SortOrder
+  }
+
+  export type rate_resAvgOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type rate_resMaxOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    amount?: SortOrder
+    daterate?: SortOrder
+  }
+
+  export type rate_resMinOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    amount?: SortOrder
+    daterate?: SortOrder
+  }
+
+  export type rate_resSumOrderByAggregateInput = {
+    userId?: SortOrder
+    resId?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type Like_resListRelationFilter = {
+    every?: like_resWhereInput
+    some?: like_resWhereInput
+    none?: like_resWhereInput
+  }
+
+  export type Like_res_2ListRelationFilter = {
+    every?: like_res_2WhereInput
+    some?: like_res_2WhereInput
+    none?: like_res_2WhereInput
+  }
+
+  export type Rate_resListRelationFilter = {
+    every?: rate_resWhereInput
+    some?: rate_resWhereInput
+    none?: rate_resWhereInput
+  }
+
+  export type like_resOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type like_res_2OrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type rate_resOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type restaurantOrderByRelevanceInput = {
     fields: restaurantOrderByRelevanceFieldEnum | restaurantOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -7007,10 +12459,115 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
+  export type UsersNullableScalarRelationFilter = {
+    is?: usersWhereInput | null
+    isNot?: usersWhereInput | null
+  }
+
+  export type ordersOrderByRelevanceInput = {
+    fields: ordersOrderByRelevanceFieldEnum | ordersOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type ordersCountOrderByAggregateInput = {
+    orderId?: SortOrder
+    userId?: SortOrder
+    foodId?: SortOrder
+    amount?: SortOrder
+    code?: SortOrder
+    arrsubId?: SortOrder
+  }
+
+  export type ordersAvgOrderByAggregateInput = {
+    orderId?: SortOrder
+    userId?: SortOrder
+    foodId?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type ordersMaxOrderByAggregateInput = {
+    orderId?: SortOrder
+    userId?: SortOrder
+    foodId?: SortOrder
+    amount?: SortOrder
+    code?: SortOrder
+    arrsubId?: SortOrder
+  }
+
+  export type ordersMinOrderByAggregateInput = {
+    orderId?: SortOrder
+    userId?: SortOrder
+    foodId?: SortOrder
+    amount?: SortOrder
+    code?: SortOrder
+    arrsubId?: SortOrder
+  }
+
+  export type ordersSumOrderByAggregateInput = {
+    orderId?: SortOrder
+    userId?: SortOrder
+    foodId?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type RestaurantNullableScalarRelationFilter = {
+    is?: restaurantWhereInput | null
+    isNot?: restaurantWhereInput | null
+  }
+
+  export type like_res_2UserIdResIdCompoundUniqueInput = {
+    userId: number
+    resId: number
+  }
+
+  export type like_res_2CountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resId?: SortOrder
+    datelike?: SortOrder
+    isLike?: SortOrder
+  }
+
+  export type like_res_2AvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resId?: SortOrder
+  }
+
+  export type like_res_2MaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resId?: SortOrder
+    datelike?: SortOrder
+    isLike?: SortOrder
+  }
+
+  export type like_res_2MinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resId?: SortOrder
+    datelike?: SortOrder
+    isLike?: SortOrder
+  }
+
+  export type like_res_2SumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    resId?: SortOrder
+  }
+
   export type food_typeCreateNestedOneWithoutFoodInput = {
     create?: XOR<food_typeCreateWithoutFoodInput, food_typeUncheckedCreateWithoutFoodInput>
     connectOrCreate?: food_typeCreateOrConnectWithoutFoodInput
     connect?: food_typeWhereUniqueInput
+  }
+
+  export type ordersCreateNestedManyWithoutFoodInput = {
+    create?: XOR<ordersCreateWithoutFoodInput, ordersUncheckedCreateWithoutFoodInput> | ordersCreateWithoutFoodInput[] | ordersUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: ordersCreateOrConnectWithoutFoodInput | ordersCreateOrConnectWithoutFoodInput[]
+    createMany?: ordersCreateManyFoodInputEnvelope
+    connect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
   }
 
   export type sub_foodCreateNestedManyWithoutFoodInput = {
@@ -7018,6 +12575,13 @@ export namespace Prisma {
     connectOrCreate?: sub_foodCreateOrConnectWithoutFoodInput | sub_foodCreateOrConnectWithoutFoodInput[]
     createMany?: sub_foodCreateManyFoodInputEnvelope
     connect?: sub_foodWhereUniqueInput | sub_foodWhereUniqueInput[]
+  }
+
+  export type ordersUncheckedCreateNestedManyWithoutFoodInput = {
+    create?: XOR<ordersCreateWithoutFoodInput, ordersUncheckedCreateWithoutFoodInput> | ordersCreateWithoutFoodInput[] | ordersUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: ordersCreateOrConnectWithoutFoodInput | ordersCreateOrConnectWithoutFoodInput[]
+    createMany?: ordersCreateManyFoodInputEnvelope
+    connect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
   }
 
   export type sub_foodUncheckedCreateNestedManyWithoutFoodInput = {
@@ -7049,6 +12613,20 @@ export namespace Prisma {
     update?: XOR<XOR<food_typeUpdateToOneWithWhereWithoutFoodInput, food_typeUpdateWithoutFoodInput>, food_typeUncheckedUpdateWithoutFoodInput>
   }
 
+  export type ordersUpdateManyWithoutFoodNestedInput = {
+    create?: XOR<ordersCreateWithoutFoodInput, ordersUncheckedCreateWithoutFoodInput> | ordersCreateWithoutFoodInput[] | ordersUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: ordersCreateOrConnectWithoutFoodInput | ordersCreateOrConnectWithoutFoodInput[]
+    upsert?: ordersUpsertWithWhereUniqueWithoutFoodInput | ordersUpsertWithWhereUniqueWithoutFoodInput[]
+    createMany?: ordersCreateManyFoodInputEnvelope
+    set?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    disconnect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    delete?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    connect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    update?: ordersUpdateWithWhereUniqueWithoutFoodInput | ordersUpdateWithWhereUniqueWithoutFoodInput[]
+    updateMany?: ordersUpdateManyWithWhereWithoutFoodInput | ordersUpdateManyWithWhereWithoutFoodInput[]
+    deleteMany?: ordersScalarWhereInput | ordersScalarWhereInput[]
+  }
+
   export type sub_foodUpdateManyWithoutFoodNestedInput = {
     create?: XOR<sub_foodCreateWithoutFoodInput, sub_foodUncheckedCreateWithoutFoodInput> | sub_foodCreateWithoutFoodInput[] | sub_foodUncheckedCreateWithoutFoodInput[]
     connectOrCreate?: sub_foodCreateOrConnectWithoutFoodInput | sub_foodCreateOrConnectWithoutFoodInput[]
@@ -7077,6 +12655,20 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type ordersUncheckedUpdateManyWithoutFoodNestedInput = {
+    create?: XOR<ordersCreateWithoutFoodInput, ordersUncheckedCreateWithoutFoodInput> | ordersCreateWithoutFoodInput[] | ordersUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: ordersCreateOrConnectWithoutFoodInput | ordersCreateOrConnectWithoutFoodInput[]
+    upsert?: ordersUpsertWithWhereUniqueWithoutFoodInput | ordersUpsertWithWhereUniqueWithoutFoodInput[]
+    createMany?: ordersCreateManyFoodInputEnvelope
+    set?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    disconnect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    delete?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    connect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    update?: ordersUpdateWithWhereUniqueWithoutFoodInput | ordersUpdateWithWhereUniqueWithoutFoodInput[]
+    updateMany?: ordersUpdateManyWithWhereWithoutFoodInput | ordersUpdateManyWithWhereWithoutFoodInput[]
+    deleteMany?: ordersScalarWhereInput | ordersScalarWhereInput[]
   }
 
   export type sub_foodUncheckedUpdateManyWithoutFoodNestedInput = {
@@ -7135,6 +12727,196 @@ export namespace Prisma {
     deleteMany?: foodScalarWhereInput | foodScalarWhereInput[]
   }
 
+  export type usersCreateNestedOneWithoutLike_resInput = {
+    create?: XOR<usersCreateWithoutLike_resInput, usersUncheckedCreateWithoutLike_resInput>
+    connectOrCreate?: usersCreateOrConnectWithoutLike_resInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type restaurantCreateNestedOneWithoutLike_resInput = {
+    create?: XOR<restaurantCreateWithoutLike_resInput, restaurantUncheckedCreateWithoutLike_resInput>
+    connectOrCreate?: restaurantCreateOrConnectWithoutLike_resInput
+    connect?: restaurantWhereUniqueInput
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
+  }
+
+  export type usersUpdateOneRequiredWithoutLike_resNestedInput = {
+    create?: XOR<usersCreateWithoutLike_resInput, usersUncheckedCreateWithoutLike_resInput>
+    connectOrCreate?: usersCreateOrConnectWithoutLike_resInput
+    upsert?: usersUpsertWithoutLike_resInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutLike_resInput, usersUpdateWithoutLike_resInput>, usersUncheckedUpdateWithoutLike_resInput>
+  }
+
+  export type restaurantUpdateOneRequiredWithoutLike_resNestedInput = {
+    create?: XOR<restaurantCreateWithoutLike_resInput, restaurantUncheckedCreateWithoutLike_resInput>
+    connectOrCreate?: restaurantCreateOrConnectWithoutLike_resInput
+    upsert?: restaurantUpsertWithoutLike_resInput
+    connect?: restaurantWhereUniqueInput
+    update?: XOR<XOR<restaurantUpdateToOneWithWhereWithoutLike_resInput, restaurantUpdateWithoutLike_resInput>, restaurantUncheckedUpdateWithoutLike_resInput>
+  }
+
+  export type usersCreateNestedOneWithoutRate_resInput = {
+    create?: XOR<usersCreateWithoutRate_resInput, usersUncheckedCreateWithoutRate_resInput>
+    connectOrCreate?: usersCreateOrConnectWithoutRate_resInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type restaurantCreateNestedOneWithoutRate_resInput = {
+    create?: XOR<restaurantCreateWithoutRate_resInput, restaurantUncheckedCreateWithoutRate_resInput>
+    connectOrCreate?: restaurantCreateOrConnectWithoutRate_resInput
+    connect?: restaurantWhereUniqueInput
+  }
+
+  export type usersUpdateOneRequiredWithoutRate_resNestedInput = {
+    create?: XOR<usersCreateWithoutRate_resInput, usersUncheckedCreateWithoutRate_resInput>
+    connectOrCreate?: usersCreateOrConnectWithoutRate_resInput
+    upsert?: usersUpsertWithoutRate_resInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutRate_resInput, usersUpdateWithoutRate_resInput>, usersUncheckedUpdateWithoutRate_resInput>
+  }
+
+  export type restaurantUpdateOneRequiredWithoutRate_resNestedInput = {
+    create?: XOR<restaurantCreateWithoutRate_resInput, restaurantUncheckedCreateWithoutRate_resInput>
+    connectOrCreate?: restaurantCreateOrConnectWithoutRate_resInput
+    upsert?: restaurantUpsertWithoutRate_resInput
+    connect?: restaurantWhereUniqueInput
+    update?: XOR<XOR<restaurantUpdateToOneWithWhereWithoutRate_resInput, restaurantUpdateWithoutRate_resInput>, restaurantUncheckedUpdateWithoutRate_resInput>
+  }
+
+  export type like_resCreateNestedManyWithoutRestaurantInput = {
+    create?: XOR<like_resCreateWithoutRestaurantInput, like_resUncheckedCreateWithoutRestaurantInput> | like_resCreateWithoutRestaurantInput[] | like_resUncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: like_resCreateOrConnectWithoutRestaurantInput | like_resCreateOrConnectWithoutRestaurantInput[]
+    createMany?: like_resCreateManyRestaurantInputEnvelope
+    connect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+  }
+
+  export type like_res_2CreateNestedManyWithoutRestaurantInput = {
+    create?: XOR<like_res_2CreateWithoutRestaurantInput, like_res_2UncheckedCreateWithoutRestaurantInput> | like_res_2CreateWithoutRestaurantInput[] | like_res_2UncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: like_res_2CreateOrConnectWithoutRestaurantInput | like_res_2CreateOrConnectWithoutRestaurantInput[]
+    createMany?: like_res_2CreateManyRestaurantInputEnvelope
+    connect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+  }
+
+  export type rate_resCreateNestedManyWithoutRestaurantInput = {
+    create?: XOR<rate_resCreateWithoutRestaurantInput, rate_resUncheckedCreateWithoutRestaurantInput> | rate_resCreateWithoutRestaurantInput[] | rate_resUncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: rate_resCreateOrConnectWithoutRestaurantInput | rate_resCreateOrConnectWithoutRestaurantInput[]
+    createMany?: rate_resCreateManyRestaurantInputEnvelope
+    connect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+  }
+
+  export type like_resUncheckedCreateNestedManyWithoutRestaurantInput = {
+    create?: XOR<like_resCreateWithoutRestaurantInput, like_resUncheckedCreateWithoutRestaurantInput> | like_resCreateWithoutRestaurantInput[] | like_resUncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: like_resCreateOrConnectWithoutRestaurantInput | like_resCreateOrConnectWithoutRestaurantInput[]
+    createMany?: like_resCreateManyRestaurantInputEnvelope
+    connect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+  }
+
+  export type like_res_2UncheckedCreateNestedManyWithoutRestaurantInput = {
+    create?: XOR<like_res_2CreateWithoutRestaurantInput, like_res_2UncheckedCreateWithoutRestaurantInput> | like_res_2CreateWithoutRestaurantInput[] | like_res_2UncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: like_res_2CreateOrConnectWithoutRestaurantInput | like_res_2CreateOrConnectWithoutRestaurantInput[]
+    createMany?: like_res_2CreateManyRestaurantInputEnvelope
+    connect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+  }
+
+  export type rate_resUncheckedCreateNestedManyWithoutRestaurantInput = {
+    create?: XOR<rate_resCreateWithoutRestaurantInput, rate_resUncheckedCreateWithoutRestaurantInput> | rate_resCreateWithoutRestaurantInput[] | rate_resUncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: rate_resCreateOrConnectWithoutRestaurantInput | rate_resCreateOrConnectWithoutRestaurantInput[]
+    createMany?: rate_resCreateManyRestaurantInputEnvelope
+    connect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+  }
+
+  export type like_resUpdateManyWithoutRestaurantNestedInput = {
+    create?: XOR<like_resCreateWithoutRestaurantInput, like_resUncheckedCreateWithoutRestaurantInput> | like_resCreateWithoutRestaurantInput[] | like_resUncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: like_resCreateOrConnectWithoutRestaurantInput | like_resCreateOrConnectWithoutRestaurantInput[]
+    upsert?: like_resUpsertWithWhereUniqueWithoutRestaurantInput | like_resUpsertWithWhereUniqueWithoutRestaurantInput[]
+    createMany?: like_resCreateManyRestaurantInputEnvelope
+    set?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    disconnect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    delete?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    connect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    update?: like_resUpdateWithWhereUniqueWithoutRestaurantInput | like_resUpdateWithWhereUniqueWithoutRestaurantInput[]
+    updateMany?: like_resUpdateManyWithWhereWithoutRestaurantInput | like_resUpdateManyWithWhereWithoutRestaurantInput[]
+    deleteMany?: like_resScalarWhereInput | like_resScalarWhereInput[]
+  }
+
+  export type like_res_2UpdateManyWithoutRestaurantNestedInput = {
+    create?: XOR<like_res_2CreateWithoutRestaurantInput, like_res_2UncheckedCreateWithoutRestaurantInput> | like_res_2CreateWithoutRestaurantInput[] | like_res_2UncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: like_res_2CreateOrConnectWithoutRestaurantInput | like_res_2CreateOrConnectWithoutRestaurantInput[]
+    upsert?: like_res_2UpsertWithWhereUniqueWithoutRestaurantInput | like_res_2UpsertWithWhereUniqueWithoutRestaurantInput[]
+    createMany?: like_res_2CreateManyRestaurantInputEnvelope
+    set?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    disconnect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    delete?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    connect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    update?: like_res_2UpdateWithWhereUniqueWithoutRestaurantInput | like_res_2UpdateWithWhereUniqueWithoutRestaurantInput[]
+    updateMany?: like_res_2UpdateManyWithWhereWithoutRestaurantInput | like_res_2UpdateManyWithWhereWithoutRestaurantInput[]
+    deleteMany?: like_res_2ScalarWhereInput | like_res_2ScalarWhereInput[]
+  }
+
+  export type rate_resUpdateManyWithoutRestaurantNestedInput = {
+    create?: XOR<rate_resCreateWithoutRestaurantInput, rate_resUncheckedCreateWithoutRestaurantInput> | rate_resCreateWithoutRestaurantInput[] | rate_resUncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: rate_resCreateOrConnectWithoutRestaurantInput | rate_resCreateOrConnectWithoutRestaurantInput[]
+    upsert?: rate_resUpsertWithWhereUniqueWithoutRestaurantInput | rate_resUpsertWithWhereUniqueWithoutRestaurantInput[]
+    createMany?: rate_resCreateManyRestaurantInputEnvelope
+    set?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    disconnect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    delete?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    connect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    update?: rate_resUpdateWithWhereUniqueWithoutRestaurantInput | rate_resUpdateWithWhereUniqueWithoutRestaurantInput[]
+    updateMany?: rate_resUpdateManyWithWhereWithoutRestaurantInput | rate_resUpdateManyWithWhereWithoutRestaurantInput[]
+    deleteMany?: rate_resScalarWhereInput | rate_resScalarWhereInput[]
+  }
+
+  export type like_resUncheckedUpdateManyWithoutRestaurantNestedInput = {
+    create?: XOR<like_resCreateWithoutRestaurantInput, like_resUncheckedCreateWithoutRestaurantInput> | like_resCreateWithoutRestaurantInput[] | like_resUncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: like_resCreateOrConnectWithoutRestaurantInput | like_resCreateOrConnectWithoutRestaurantInput[]
+    upsert?: like_resUpsertWithWhereUniqueWithoutRestaurantInput | like_resUpsertWithWhereUniqueWithoutRestaurantInput[]
+    createMany?: like_resCreateManyRestaurantInputEnvelope
+    set?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    disconnect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    delete?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    connect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    update?: like_resUpdateWithWhereUniqueWithoutRestaurantInput | like_resUpdateWithWhereUniqueWithoutRestaurantInput[]
+    updateMany?: like_resUpdateManyWithWhereWithoutRestaurantInput | like_resUpdateManyWithWhereWithoutRestaurantInput[]
+    deleteMany?: like_resScalarWhereInput | like_resScalarWhereInput[]
+  }
+
+  export type like_res_2UncheckedUpdateManyWithoutRestaurantNestedInput = {
+    create?: XOR<like_res_2CreateWithoutRestaurantInput, like_res_2UncheckedCreateWithoutRestaurantInput> | like_res_2CreateWithoutRestaurantInput[] | like_res_2UncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: like_res_2CreateOrConnectWithoutRestaurantInput | like_res_2CreateOrConnectWithoutRestaurantInput[]
+    upsert?: like_res_2UpsertWithWhereUniqueWithoutRestaurantInput | like_res_2UpsertWithWhereUniqueWithoutRestaurantInput[]
+    createMany?: like_res_2CreateManyRestaurantInputEnvelope
+    set?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    disconnect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    delete?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    connect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    update?: like_res_2UpdateWithWhereUniqueWithoutRestaurantInput | like_res_2UpdateWithWhereUniqueWithoutRestaurantInput[]
+    updateMany?: like_res_2UpdateManyWithWhereWithoutRestaurantInput | like_res_2UpdateManyWithWhereWithoutRestaurantInput[]
+    deleteMany?: like_res_2ScalarWhereInput | like_res_2ScalarWhereInput[]
+  }
+
+  export type rate_resUncheckedUpdateManyWithoutRestaurantNestedInput = {
+    create?: XOR<rate_resCreateWithoutRestaurantInput, rate_resUncheckedCreateWithoutRestaurantInput> | rate_resCreateWithoutRestaurantInput[] | rate_resUncheckedCreateWithoutRestaurantInput[]
+    connectOrCreate?: rate_resCreateOrConnectWithoutRestaurantInput | rate_resCreateOrConnectWithoutRestaurantInput[]
+    upsert?: rate_resUpsertWithWhereUniqueWithoutRestaurantInput | rate_resUpsertWithWhereUniqueWithoutRestaurantInput[]
+    createMany?: rate_resCreateManyRestaurantInputEnvelope
+    set?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    disconnect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    delete?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    connect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    update?: rate_resUpdateWithWhereUniqueWithoutRestaurantInput | rate_resUpdateWithWhereUniqueWithoutRestaurantInput[]
+    updateMany?: rate_resUpdateManyWithWhereWithoutRestaurantInput | rate_resUpdateManyWithWhereWithoutRestaurantInput[]
+    deleteMany?: rate_resScalarWhereInput | rate_resScalarWhereInput[]
+  }
+
   export type foodCreateNestedOneWithoutSub_foodInput = {
     create?: XOR<foodCreateWithoutSub_foodInput, foodUncheckedCreateWithoutSub_foodInput>
     connectOrCreate?: foodCreateOrConnectWithoutSub_foodInput
@@ -7149,6 +12931,238 @@ export namespace Prisma {
     delete?: foodWhereInput | boolean
     connect?: foodWhereUniqueInput
     update?: XOR<XOR<foodUpdateToOneWithWhereWithoutSub_foodInput, foodUpdateWithoutSub_foodInput>, foodUncheckedUpdateWithoutSub_foodInput>
+  }
+
+  export type like_resCreateNestedManyWithoutUsersInput = {
+    create?: XOR<like_resCreateWithoutUsersInput, like_resUncheckedCreateWithoutUsersInput> | like_resCreateWithoutUsersInput[] | like_resUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: like_resCreateOrConnectWithoutUsersInput | like_resCreateOrConnectWithoutUsersInput[]
+    createMany?: like_resCreateManyUsersInputEnvelope
+    connect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+  }
+
+  export type like_res_2CreateNestedManyWithoutUsersInput = {
+    create?: XOR<like_res_2CreateWithoutUsersInput, like_res_2UncheckedCreateWithoutUsersInput> | like_res_2CreateWithoutUsersInput[] | like_res_2UncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: like_res_2CreateOrConnectWithoutUsersInput | like_res_2CreateOrConnectWithoutUsersInput[]
+    createMany?: like_res_2CreateManyUsersInputEnvelope
+    connect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+  }
+
+  export type ordersCreateNestedManyWithoutUsersInput = {
+    create?: XOR<ordersCreateWithoutUsersInput, ordersUncheckedCreateWithoutUsersInput> | ordersCreateWithoutUsersInput[] | ordersUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: ordersCreateOrConnectWithoutUsersInput | ordersCreateOrConnectWithoutUsersInput[]
+    createMany?: ordersCreateManyUsersInputEnvelope
+    connect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+  }
+
+  export type rate_resCreateNestedManyWithoutUsersInput = {
+    create?: XOR<rate_resCreateWithoutUsersInput, rate_resUncheckedCreateWithoutUsersInput> | rate_resCreateWithoutUsersInput[] | rate_resUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: rate_resCreateOrConnectWithoutUsersInput | rate_resCreateOrConnectWithoutUsersInput[]
+    createMany?: rate_resCreateManyUsersInputEnvelope
+    connect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+  }
+
+  export type like_resUncheckedCreateNestedManyWithoutUsersInput = {
+    create?: XOR<like_resCreateWithoutUsersInput, like_resUncheckedCreateWithoutUsersInput> | like_resCreateWithoutUsersInput[] | like_resUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: like_resCreateOrConnectWithoutUsersInput | like_resCreateOrConnectWithoutUsersInput[]
+    createMany?: like_resCreateManyUsersInputEnvelope
+    connect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+  }
+
+  export type like_res_2UncheckedCreateNestedManyWithoutUsersInput = {
+    create?: XOR<like_res_2CreateWithoutUsersInput, like_res_2UncheckedCreateWithoutUsersInput> | like_res_2CreateWithoutUsersInput[] | like_res_2UncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: like_res_2CreateOrConnectWithoutUsersInput | like_res_2CreateOrConnectWithoutUsersInput[]
+    createMany?: like_res_2CreateManyUsersInputEnvelope
+    connect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+  }
+
+  export type ordersUncheckedCreateNestedManyWithoutUsersInput = {
+    create?: XOR<ordersCreateWithoutUsersInput, ordersUncheckedCreateWithoutUsersInput> | ordersCreateWithoutUsersInput[] | ordersUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: ordersCreateOrConnectWithoutUsersInput | ordersCreateOrConnectWithoutUsersInput[]
+    createMany?: ordersCreateManyUsersInputEnvelope
+    connect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+  }
+
+  export type rate_resUncheckedCreateNestedManyWithoutUsersInput = {
+    create?: XOR<rate_resCreateWithoutUsersInput, rate_resUncheckedCreateWithoutUsersInput> | rate_resCreateWithoutUsersInput[] | rate_resUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: rate_resCreateOrConnectWithoutUsersInput | rate_resCreateOrConnectWithoutUsersInput[]
+    createMany?: rate_resCreateManyUsersInputEnvelope
+    connect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+  }
+
+  export type like_resUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<like_resCreateWithoutUsersInput, like_resUncheckedCreateWithoutUsersInput> | like_resCreateWithoutUsersInput[] | like_resUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: like_resCreateOrConnectWithoutUsersInput | like_resCreateOrConnectWithoutUsersInput[]
+    upsert?: like_resUpsertWithWhereUniqueWithoutUsersInput | like_resUpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: like_resCreateManyUsersInputEnvelope
+    set?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    disconnect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    delete?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    connect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    update?: like_resUpdateWithWhereUniqueWithoutUsersInput | like_resUpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: like_resUpdateManyWithWhereWithoutUsersInput | like_resUpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: like_resScalarWhereInput | like_resScalarWhereInput[]
+  }
+
+  export type like_res_2UpdateManyWithoutUsersNestedInput = {
+    create?: XOR<like_res_2CreateWithoutUsersInput, like_res_2UncheckedCreateWithoutUsersInput> | like_res_2CreateWithoutUsersInput[] | like_res_2UncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: like_res_2CreateOrConnectWithoutUsersInput | like_res_2CreateOrConnectWithoutUsersInput[]
+    upsert?: like_res_2UpsertWithWhereUniqueWithoutUsersInput | like_res_2UpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: like_res_2CreateManyUsersInputEnvelope
+    set?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    disconnect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    delete?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    connect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    update?: like_res_2UpdateWithWhereUniqueWithoutUsersInput | like_res_2UpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: like_res_2UpdateManyWithWhereWithoutUsersInput | like_res_2UpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: like_res_2ScalarWhereInput | like_res_2ScalarWhereInput[]
+  }
+
+  export type ordersUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<ordersCreateWithoutUsersInput, ordersUncheckedCreateWithoutUsersInput> | ordersCreateWithoutUsersInput[] | ordersUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: ordersCreateOrConnectWithoutUsersInput | ordersCreateOrConnectWithoutUsersInput[]
+    upsert?: ordersUpsertWithWhereUniqueWithoutUsersInput | ordersUpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: ordersCreateManyUsersInputEnvelope
+    set?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    disconnect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    delete?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    connect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    update?: ordersUpdateWithWhereUniqueWithoutUsersInput | ordersUpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: ordersUpdateManyWithWhereWithoutUsersInput | ordersUpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: ordersScalarWhereInput | ordersScalarWhereInput[]
+  }
+
+  export type rate_resUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<rate_resCreateWithoutUsersInput, rate_resUncheckedCreateWithoutUsersInput> | rate_resCreateWithoutUsersInput[] | rate_resUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: rate_resCreateOrConnectWithoutUsersInput | rate_resCreateOrConnectWithoutUsersInput[]
+    upsert?: rate_resUpsertWithWhereUniqueWithoutUsersInput | rate_resUpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: rate_resCreateManyUsersInputEnvelope
+    set?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    disconnect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    delete?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    connect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    update?: rate_resUpdateWithWhereUniqueWithoutUsersInput | rate_resUpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: rate_resUpdateManyWithWhereWithoutUsersInput | rate_resUpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: rate_resScalarWhereInput | rate_resScalarWhereInput[]
+  }
+
+  export type like_resUncheckedUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<like_resCreateWithoutUsersInput, like_resUncheckedCreateWithoutUsersInput> | like_resCreateWithoutUsersInput[] | like_resUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: like_resCreateOrConnectWithoutUsersInput | like_resCreateOrConnectWithoutUsersInput[]
+    upsert?: like_resUpsertWithWhereUniqueWithoutUsersInput | like_resUpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: like_resCreateManyUsersInputEnvelope
+    set?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    disconnect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    delete?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    connect?: like_resWhereUniqueInput | like_resWhereUniqueInput[]
+    update?: like_resUpdateWithWhereUniqueWithoutUsersInput | like_resUpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: like_resUpdateManyWithWhereWithoutUsersInput | like_resUpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: like_resScalarWhereInput | like_resScalarWhereInput[]
+  }
+
+  export type like_res_2UncheckedUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<like_res_2CreateWithoutUsersInput, like_res_2UncheckedCreateWithoutUsersInput> | like_res_2CreateWithoutUsersInput[] | like_res_2UncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: like_res_2CreateOrConnectWithoutUsersInput | like_res_2CreateOrConnectWithoutUsersInput[]
+    upsert?: like_res_2UpsertWithWhereUniqueWithoutUsersInput | like_res_2UpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: like_res_2CreateManyUsersInputEnvelope
+    set?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    disconnect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    delete?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    connect?: like_res_2WhereUniqueInput | like_res_2WhereUniqueInput[]
+    update?: like_res_2UpdateWithWhereUniqueWithoutUsersInput | like_res_2UpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: like_res_2UpdateManyWithWhereWithoutUsersInput | like_res_2UpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: like_res_2ScalarWhereInput | like_res_2ScalarWhereInput[]
+  }
+
+  export type ordersUncheckedUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<ordersCreateWithoutUsersInput, ordersUncheckedCreateWithoutUsersInput> | ordersCreateWithoutUsersInput[] | ordersUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: ordersCreateOrConnectWithoutUsersInput | ordersCreateOrConnectWithoutUsersInput[]
+    upsert?: ordersUpsertWithWhereUniqueWithoutUsersInput | ordersUpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: ordersCreateManyUsersInputEnvelope
+    set?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    disconnect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    delete?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    connect?: ordersWhereUniqueInput | ordersWhereUniqueInput[]
+    update?: ordersUpdateWithWhereUniqueWithoutUsersInput | ordersUpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: ordersUpdateManyWithWhereWithoutUsersInput | ordersUpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: ordersScalarWhereInput | ordersScalarWhereInput[]
+  }
+
+  export type rate_resUncheckedUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<rate_resCreateWithoutUsersInput, rate_resUncheckedCreateWithoutUsersInput> | rate_resCreateWithoutUsersInput[] | rate_resUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: rate_resCreateOrConnectWithoutUsersInput | rate_resCreateOrConnectWithoutUsersInput[]
+    upsert?: rate_resUpsertWithWhereUniqueWithoutUsersInput | rate_resUpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: rate_resCreateManyUsersInputEnvelope
+    set?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    disconnect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    delete?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    connect?: rate_resWhereUniqueInput | rate_resWhereUniqueInput[]
+    update?: rate_resUpdateWithWhereUniqueWithoutUsersInput | rate_resUpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: rate_resUpdateManyWithWhereWithoutUsersInput | rate_resUpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: rate_resScalarWhereInput | rate_resScalarWhereInput[]
+  }
+
+  export type usersCreateNestedOneWithoutOrdersInput = {
+    create?: XOR<usersCreateWithoutOrdersInput, usersUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: usersCreateOrConnectWithoutOrdersInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type foodCreateNestedOneWithoutOrdersInput = {
+    create?: XOR<foodCreateWithoutOrdersInput, foodUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: foodCreateOrConnectWithoutOrdersInput
+    connect?: foodWhereUniqueInput
+  }
+
+  export type usersUpdateOneWithoutOrdersNestedInput = {
+    create?: XOR<usersCreateWithoutOrdersInput, usersUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: usersCreateOrConnectWithoutOrdersInput
+    upsert?: usersUpsertWithoutOrdersInput
+    disconnect?: usersWhereInput | boolean
+    delete?: usersWhereInput | boolean
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutOrdersInput, usersUpdateWithoutOrdersInput>, usersUncheckedUpdateWithoutOrdersInput>
+  }
+
+  export type foodUpdateOneWithoutOrdersNestedInput = {
+    create?: XOR<foodCreateWithoutOrdersInput, foodUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: foodCreateOrConnectWithoutOrdersInput
+    upsert?: foodUpsertWithoutOrdersInput
+    disconnect?: foodWhereInput | boolean
+    delete?: foodWhereInput | boolean
+    connect?: foodWhereUniqueInput
+    update?: XOR<XOR<foodUpdateToOneWithWhereWithoutOrdersInput, foodUpdateWithoutOrdersInput>, foodUncheckedUpdateWithoutOrdersInput>
+  }
+
+  export type usersCreateNestedOneWithoutLike_res_2Input = {
+    create?: XOR<usersCreateWithoutLike_res_2Input, usersUncheckedCreateWithoutLike_res_2Input>
+    connectOrCreate?: usersCreateOrConnectWithoutLike_res_2Input
+    connect?: usersWhereUniqueInput
+  }
+
+  export type restaurantCreateNestedOneWithoutLike_res_2Input = {
+    create?: XOR<restaurantCreateWithoutLike_res_2Input, restaurantUncheckedCreateWithoutLike_res_2Input>
+    connectOrCreate?: restaurantCreateOrConnectWithoutLike_res_2Input
+    connect?: restaurantWhereUniqueInput
+  }
+
+  export type usersUpdateOneWithoutLike_res_2NestedInput = {
+    create?: XOR<usersCreateWithoutLike_res_2Input, usersUncheckedCreateWithoutLike_res_2Input>
+    connectOrCreate?: usersCreateOrConnectWithoutLike_res_2Input
+    upsert?: usersUpsertWithoutLike_res_2Input
+    disconnect?: usersWhereInput | boolean
+    delete?: usersWhereInput | boolean
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutLike_res_2Input, usersUpdateWithoutLike_res_2Input>, usersUncheckedUpdateWithoutLike_res_2Input>
+  }
+
+  export type restaurantUpdateOneWithoutLike_res_2NestedInput = {
+    create?: XOR<restaurantCreateWithoutLike_res_2Input, restaurantUncheckedCreateWithoutLike_res_2Input>
+    connectOrCreate?: restaurantCreateOrConnectWithoutLike_res_2Input
+    upsert?: restaurantUpsertWithoutLike_res_2Input
+    disconnect?: restaurantWhereInput | boolean
+    delete?: restaurantWhereInput | boolean
+    connect?: restaurantWhereUniqueInput
+    update?: XOR<XOR<restaurantUpdateToOneWithWhereWithoutLike_res_2Input, restaurantUpdateWithoutLike_res_2Input>, restaurantUncheckedUpdateWithoutLike_res_2Input>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7276,6 +13290,44 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
   export type food_typeCreateWithoutFoodInput = {
     typename?: string | null
   }
@@ -7288,6 +13340,31 @@ export namespace Prisma {
   export type food_typeCreateOrConnectWithoutFoodInput = {
     where: food_typeWhereUniqueInput
     create: XOR<food_typeCreateWithoutFoodInput, food_typeUncheckedCreateWithoutFoodInput>
+  }
+
+  export type ordersCreateWithoutFoodInput = {
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
+    users?: usersCreateNestedOneWithoutOrdersInput
+  }
+
+  export type ordersUncheckedCreateWithoutFoodInput = {
+    orderId?: number
+    userId?: number | null
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
+  }
+
+  export type ordersCreateOrConnectWithoutFoodInput = {
+    where: ordersWhereUniqueInput
+    create: XOR<ordersCreateWithoutFoodInput, ordersUncheckedCreateWithoutFoodInput>
+  }
+
+  export type ordersCreateManyFoodInputEnvelope = {
+    data: ordersCreateManyFoodInput | ordersCreateManyFoodInput[]
+    skipDuplicates?: boolean
   }
 
   export type sub_foodCreateWithoutFoodInput = {
@@ -7331,6 +13408,34 @@ export namespace Prisma {
     typename?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type ordersUpsertWithWhereUniqueWithoutFoodInput = {
+    where: ordersWhereUniqueInput
+    update: XOR<ordersUpdateWithoutFoodInput, ordersUncheckedUpdateWithoutFoodInput>
+    create: XOR<ordersCreateWithoutFoodInput, ordersUncheckedCreateWithoutFoodInput>
+  }
+
+  export type ordersUpdateWithWhereUniqueWithoutFoodInput = {
+    where: ordersWhereUniqueInput
+    data: XOR<ordersUpdateWithoutFoodInput, ordersUncheckedUpdateWithoutFoodInput>
+  }
+
+  export type ordersUpdateManyWithWhereWithoutFoodInput = {
+    where: ordersScalarWhereInput
+    data: XOR<ordersUpdateManyMutationInput, ordersUncheckedUpdateManyWithoutFoodInput>
+  }
+
+  export type ordersScalarWhereInput = {
+    AND?: ordersScalarWhereInput | ordersScalarWhereInput[]
+    OR?: ordersScalarWhereInput[]
+    NOT?: ordersScalarWhereInput | ordersScalarWhereInput[]
+    orderId?: IntFilter<"orders"> | number
+    userId?: IntNullableFilter<"orders"> | number | null
+    foodId?: IntNullableFilter<"orders"> | number | null
+    amount?: IntNullableFilter<"orders"> | number | null
+    code?: StringNullableFilter<"orders"> | string | null
+    arrsubId?: StringNullableFilter<"orders"> | string | null
+  }
+
   export type sub_foodUpsertWithWhereUniqueWithoutFoodInput = {
     where: sub_foodWhereUniqueInput
     update: XOR<sub_foodUpdateWithoutFoodInput, sub_foodUncheckedUpdateWithoutFoodInput>
@@ -7362,6 +13467,7 @@ export namespace Prisma {
     image?: string | null
     price?: number | null
     desc?: string | null
+    orders?: ordersCreateNestedManyWithoutFoodInput
     sub_food?: sub_foodCreateNestedManyWithoutFoodInput
   }
 
@@ -7371,6 +13477,7 @@ export namespace Prisma {
     image?: string | null
     price?: number | null
     desc?: string | null
+    orders?: ordersUncheckedCreateNestedManyWithoutFoodInput
     sub_food?: sub_foodUncheckedCreateNestedManyWithoutFoodInput
   }
 
@@ -7412,12 +13519,367 @@ export namespace Prisma {
     typeId?: IntNullableFilter<"food"> | number | null
   }
 
+  export type usersCreateWithoutLike_resInput = {
+    fullname?: string | null
+    email?: string | null
+    password?: string | null
+    like_res_2?: like_res_2CreateNestedManyWithoutUsersInput
+    orders?: ordersCreateNestedManyWithoutUsersInput
+    rate_res?: rate_resCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutLike_resInput = {
+    userId?: number
+    fullname?: string | null
+    email?: string | null
+    password?: string | null
+    like_res_2?: like_res_2UncheckedCreateNestedManyWithoutUsersInput
+    orders?: ordersUncheckedCreateNestedManyWithoutUsersInput
+    rate_res?: rate_resUncheckedCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersCreateOrConnectWithoutLike_resInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutLike_resInput, usersUncheckedCreateWithoutLike_resInput>
+  }
+
+  export type restaurantCreateWithoutLike_resInput = {
+    resname?: string | null
+    image?: string | null
+    desc?: string | null
+    like_res_2?: like_res_2CreateNestedManyWithoutRestaurantInput
+    rate_res?: rate_resCreateNestedManyWithoutRestaurantInput
+  }
+
+  export type restaurantUncheckedCreateWithoutLike_resInput = {
+    resId?: number
+    resname?: string | null
+    image?: string | null
+    desc?: string | null
+    like_res_2?: like_res_2UncheckedCreateNestedManyWithoutRestaurantInput
+    rate_res?: rate_resUncheckedCreateNestedManyWithoutRestaurantInput
+  }
+
+  export type restaurantCreateOrConnectWithoutLike_resInput = {
+    where: restaurantWhereUniqueInput
+    create: XOR<restaurantCreateWithoutLike_resInput, restaurantUncheckedCreateWithoutLike_resInput>
+  }
+
+  export type usersUpsertWithoutLike_resInput = {
+    update: XOR<usersUpdateWithoutLike_resInput, usersUncheckedUpdateWithoutLike_resInput>
+    create: XOR<usersCreateWithoutLike_resInput, usersUncheckedCreateWithoutLike_resInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutLike_resInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutLike_resInput, usersUncheckedUpdateWithoutLike_resInput>
+  }
+
+  export type usersUpdateWithoutLike_resInput = {
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res_2?: like_res_2UpdateManyWithoutUsersNestedInput
+    orders?: ordersUpdateManyWithoutUsersNestedInput
+    rate_res?: rate_resUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutLike_resInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res_2?: like_res_2UncheckedUpdateManyWithoutUsersNestedInput
+    orders?: ordersUncheckedUpdateManyWithoutUsersNestedInput
+    rate_res?: rate_resUncheckedUpdateManyWithoutUsersNestedInput
+  }
+
+  export type restaurantUpsertWithoutLike_resInput = {
+    update: XOR<restaurantUpdateWithoutLike_resInput, restaurantUncheckedUpdateWithoutLike_resInput>
+    create: XOR<restaurantCreateWithoutLike_resInput, restaurantUncheckedCreateWithoutLike_resInput>
+    where?: restaurantWhereInput
+  }
+
+  export type restaurantUpdateToOneWithWhereWithoutLike_resInput = {
+    where?: restaurantWhereInput
+    data: XOR<restaurantUpdateWithoutLike_resInput, restaurantUncheckedUpdateWithoutLike_resInput>
+  }
+
+  export type restaurantUpdateWithoutLike_resInput = {
+    resname?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    desc?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res_2?: like_res_2UpdateManyWithoutRestaurantNestedInput
+    rate_res?: rate_resUpdateManyWithoutRestaurantNestedInput
+  }
+
+  export type restaurantUncheckedUpdateWithoutLike_resInput = {
+    resId?: IntFieldUpdateOperationsInput | number
+    resname?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    desc?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res_2?: like_res_2UncheckedUpdateManyWithoutRestaurantNestedInput
+    rate_res?: rate_resUncheckedUpdateManyWithoutRestaurantNestedInput
+  }
+
+  export type usersCreateWithoutRate_resInput = {
+    fullname?: string | null
+    email?: string | null
+    password?: string | null
+    like_res?: like_resCreateNestedManyWithoutUsersInput
+    like_res_2?: like_res_2CreateNestedManyWithoutUsersInput
+    orders?: ordersCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutRate_resInput = {
+    userId?: number
+    fullname?: string | null
+    email?: string | null
+    password?: string | null
+    like_res?: like_resUncheckedCreateNestedManyWithoutUsersInput
+    like_res_2?: like_res_2UncheckedCreateNestedManyWithoutUsersInput
+    orders?: ordersUncheckedCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersCreateOrConnectWithoutRate_resInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutRate_resInput, usersUncheckedCreateWithoutRate_resInput>
+  }
+
+  export type restaurantCreateWithoutRate_resInput = {
+    resname?: string | null
+    image?: string | null
+    desc?: string | null
+    like_res?: like_resCreateNestedManyWithoutRestaurantInput
+    like_res_2?: like_res_2CreateNestedManyWithoutRestaurantInput
+  }
+
+  export type restaurantUncheckedCreateWithoutRate_resInput = {
+    resId?: number
+    resname?: string | null
+    image?: string | null
+    desc?: string | null
+    like_res?: like_resUncheckedCreateNestedManyWithoutRestaurantInput
+    like_res_2?: like_res_2UncheckedCreateNestedManyWithoutRestaurantInput
+  }
+
+  export type restaurantCreateOrConnectWithoutRate_resInput = {
+    where: restaurantWhereUniqueInput
+    create: XOR<restaurantCreateWithoutRate_resInput, restaurantUncheckedCreateWithoutRate_resInput>
+  }
+
+  export type usersUpsertWithoutRate_resInput = {
+    update: XOR<usersUpdateWithoutRate_resInput, usersUncheckedUpdateWithoutRate_resInput>
+    create: XOR<usersCreateWithoutRate_resInput, usersUncheckedCreateWithoutRate_resInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutRate_resInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutRate_resInput, usersUncheckedUpdateWithoutRate_resInput>
+  }
+
+  export type usersUpdateWithoutRate_resInput = {
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUpdateManyWithoutUsersNestedInput
+    like_res_2?: like_res_2UpdateManyWithoutUsersNestedInput
+    orders?: ordersUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutRate_resInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUncheckedUpdateManyWithoutUsersNestedInput
+    like_res_2?: like_res_2UncheckedUpdateManyWithoutUsersNestedInput
+    orders?: ordersUncheckedUpdateManyWithoutUsersNestedInput
+  }
+
+  export type restaurantUpsertWithoutRate_resInput = {
+    update: XOR<restaurantUpdateWithoutRate_resInput, restaurantUncheckedUpdateWithoutRate_resInput>
+    create: XOR<restaurantCreateWithoutRate_resInput, restaurantUncheckedCreateWithoutRate_resInput>
+    where?: restaurantWhereInput
+  }
+
+  export type restaurantUpdateToOneWithWhereWithoutRate_resInput = {
+    where?: restaurantWhereInput
+    data: XOR<restaurantUpdateWithoutRate_resInput, restaurantUncheckedUpdateWithoutRate_resInput>
+  }
+
+  export type restaurantUpdateWithoutRate_resInput = {
+    resname?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    desc?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUpdateManyWithoutRestaurantNestedInput
+    like_res_2?: like_res_2UpdateManyWithoutRestaurantNestedInput
+  }
+
+  export type restaurantUncheckedUpdateWithoutRate_resInput = {
+    resId?: IntFieldUpdateOperationsInput | number
+    resname?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    desc?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUncheckedUpdateManyWithoutRestaurantNestedInput
+    like_res_2?: like_res_2UncheckedUpdateManyWithoutRestaurantNestedInput
+  }
+
+  export type like_resCreateWithoutRestaurantInput = {
+    datelike?: Date | string | null
+    isLike?: boolean | null
+    users: usersCreateNestedOneWithoutLike_resInput
+  }
+
+  export type like_resUncheckedCreateWithoutRestaurantInput = {
+    userId: number
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_resCreateOrConnectWithoutRestaurantInput = {
+    where: like_resWhereUniqueInput
+    create: XOR<like_resCreateWithoutRestaurantInput, like_resUncheckedCreateWithoutRestaurantInput>
+  }
+
+  export type like_resCreateManyRestaurantInputEnvelope = {
+    data: like_resCreateManyRestaurantInput | like_resCreateManyRestaurantInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type like_res_2CreateWithoutRestaurantInput = {
+    datelike?: Date | string | null
+    isLike?: boolean | null
+    users?: usersCreateNestedOneWithoutLike_res_2Input
+  }
+
+  export type like_res_2UncheckedCreateWithoutRestaurantInput = {
+    id?: number
+    userId?: number | null
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_res_2CreateOrConnectWithoutRestaurantInput = {
+    where: like_res_2WhereUniqueInput
+    create: XOR<like_res_2CreateWithoutRestaurantInput, like_res_2UncheckedCreateWithoutRestaurantInput>
+  }
+
+  export type like_res_2CreateManyRestaurantInputEnvelope = {
+    data: like_res_2CreateManyRestaurantInput | like_res_2CreateManyRestaurantInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type rate_resCreateWithoutRestaurantInput = {
+    amount?: number | null
+    daterate?: Date | string | null
+    users: usersCreateNestedOneWithoutRate_resInput
+  }
+
+  export type rate_resUncheckedCreateWithoutRestaurantInput = {
+    userId: number
+    amount?: number | null
+    daterate?: Date | string | null
+  }
+
+  export type rate_resCreateOrConnectWithoutRestaurantInput = {
+    where: rate_resWhereUniqueInput
+    create: XOR<rate_resCreateWithoutRestaurantInput, rate_resUncheckedCreateWithoutRestaurantInput>
+  }
+
+  export type rate_resCreateManyRestaurantInputEnvelope = {
+    data: rate_resCreateManyRestaurantInput | rate_resCreateManyRestaurantInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type like_resUpsertWithWhereUniqueWithoutRestaurantInput = {
+    where: like_resWhereUniqueInput
+    update: XOR<like_resUpdateWithoutRestaurantInput, like_resUncheckedUpdateWithoutRestaurantInput>
+    create: XOR<like_resCreateWithoutRestaurantInput, like_resUncheckedCreateWithoutRestaurantInput>
+  }
+
+  export type like_resUpdateWithWhereUniqueWithoutRestaurantInput = {
+    where: like_resWhereUniqueInput
+    data: XOR<like_resUpdateWithoutRestaurantInput, like_resUncheckedUpdateWithoutRestaurantInput>
+  }
+
+  export type like_resUpdateManyWithWhereWithoutRestaurantInput = {
+    where: like_resScalarWhereInput
+    data: XOR<like_resUpdateManyMutationInput, like_resUncheckedUpdateManyWithoutRestaurantInput>
+  }
+
+  export type like_resScalarWhereInput = {
+    AND?: like_resScalarWhereInput | like_resScalarWhereInput[]
+    OR?: like_resScalarWhereInput[]
+    NOT?: like_resScalarWhereInput | like_resScalarWhereInput[]
+    userId?: IntFilter<"like_res"> | number
+    resId?: IntFilter<"like_res"> | number
+    datelike?: DateTimeNullableFilter<"like_res"> | Date | string | null
+    isLike?: BoolNullableFilter<"like_res"> | boolean | null
+  }
+
+  export type like_res_2UpsertWithWhereUniqueWithoutRestaurantInput = {
+    where: like_res_2WhereUniqueInput
+    update: XOR<like_res_2UpdateWithoutRestaurantInput, like_res_2UncheckedUpdateWithoutRestaurantInput>
+    create: XOR<like_res_2CreateWithoutRestaurantInput, like_res_2UncheckedCreateWithoutRestaurantInput>
+  }
+
+  export type like_res_2UpdateWithWhereUniqueWithoutRestaurantInput = {
+    where: like_res_2WhereUniqueInput
+    data: XOR<like_res_2UpdateWithoutRestaurantInput, like_res_2UncheckedUpdateWithoutRestaurantInput>
+  }
+
+  export type like_res_2UpdateManyWithWhereWithoutRestaurantInput = {
+    where: like_res_2ScalarWhereInput
+    data: XOR<like_res_2UpdateManyMutationInput, like_res_2UncheckedUpdateManyWithoutRestaurantInput>
+  }
+
+  export type like_res_2ScalarWhereInput = {
+    AND?: like_res_2ScalarWhereInput | like_res_2ScalarWhereInput[]
+    OR?: like_res_2ScalarWhereInput[]
+    NOT?: like_res_2ScalarWhereInput | like_res_2ScalarWhereInput[]
+    id?: IntFilter<"like_res_2"> | number
+    userId?: IntNullableFilter<"like_res_2"> | number | null
+    resId?: IntNullableFilter<"like_res_2"> | number | null
+    datelike?: DateTimeNullableFilter<"like_res_2"> | Date | string | null
+    isLike?: BoolNullableFilter<"like_res_2"> | boolean | null
+  }
+
+  export type rate_resUpsertWithWhereUniqueWithoutRestaurantInput = {
+    where: rate_resWhereUniqueInput
+    update: XOR<rate_resUpdateWithoutRestaurantInput, rate_resUncheckedUpdateWithoutRestaurantInput>
+    create: XOR<rate_resCreateWithoutRestaurantInput, rate_resUncheckedCreateWithoutRestaurantInput>
+  }
+
+  export type rate_resUpdateWithWhereUniqueWithoutRestaurantInput = {
+    where: rate_resWhereUniqueInput
+    data: XOR<rate_resUpdateWithoutRestaurantInput, rate_resUncheckedUpdateWithoutRestaurantInput>
+  }
+
+  export type rate_resUpdateManyWithWhereWithoutRestaurantInput = {
+    where: rate_resScalarWhereInput
+    data: XOR<rate_resUpdateManyMutationInput, rate_resUncheckedUpdateManyWithoutRestaurantInput>
+  }
+
+  export type rate_resScalarWhereInput = {
+    AND?: rate_resScalarWhereInput | rate_resScalarWhereInput[]
+    OR?: rate_resScalarWhereInput[]
+    NOT?: rate_resScalarWhereInput | rate_resScalarWhereInput[]
+    userId?: IntFilter<"rate_res"> | number
+    resId?: IntFilter<"rate_res"> | number
+    amount?: IntNullableFilter<"rate_res"> | number | null
+    daterate?: DateTimeNullableFilter<"rate_res"> | Date | string | null
+  }
+
   export type foodCreateWithoutSub_foodInput = {
     foodname?: string | null
     image?: string | null
     price?: number | null
     desc?: string | null
     food_type?: food_typeCreateNestedOneWithoutFoodInput
+    orders?: ordersCreateNestedManyWithoutFoodInput
   }
 
   export type foodUncheckedCreateWithoutSub_foodInput = {
@@ -7427,6 +13889,7 @@ export namespace Prisma {
     price?: number | null
     desc?: string | null
     typeId?: number | null
+    orders?: ordersUncheckedCreateNestedManyWithoutFoodInput
   }
 
   export type foodCreateOrConnectWithoutSub_foodInput = {
@@ -7451,6 +13914,7 @@ export namespace Prisma {
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     food_type?: food_typeUpdateOneWithoutFoodNestedInput
+    orders?: ordersUpdateManyWithoutFoodNestedInput
   }
 
   export type foodUncheckedUpdateWithoutSub_foodInput = {
@@ -7460,12 +13924,412 @@ export namespace Prisma {
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     typeId?: NullableIntFieldUpdateOperationsInput | number | null
+    orders?: ordersUncheckedUpdateManyWithoutFoodNestedInput
+  }
+
+  export type like_resCreateWithoutUsersInput = {
+    datelike?: Date | string | null
+    isLike?: boolean | null
+    restaurant: restaurantCreateNestedOneWithoutLike_resInput
+  }
+
+  export type like_resUncheckedCreateWithoutUsersInput = {
+    resId: number
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_resCreateOrConnectWithoutUsersInput = {
+    where: like_resWhereUniqueInput
+    create: XOR<like_resCreateWithoutUsersInput, like_resUncheckedCreateWithoutUsersInput>
+  }
+
+  export type like_resCreateManyUsersInputEnvelope = {
+    data: like_resCreateManyUsersInput | like_resCreateManyUsersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type like_res_2CreateWithoutUsersInput = {
+    datelike?: Date | string | null
+    isLike?: boolean | null
+    restaurant?: restaurantCreateNestedOneWithoutLike_res_2Input
+  }
+
+  export type like_res_2UncheckedCreateWithoutUsersInput = {
+    id?: number
+    resId?: number | null
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_res_2CreateOrConnectWithoutUsersInput = {
+    where: like_res_2WhereUniqueInput
+    create: XOR<like_res_2CreateWithoutUsersInput, like_res_2UncheckedCreateWithoutUsersInput>
+  }
+
+  export type like_res_2CreateManyUsersInputEnvelope = {
+    data: like_res_2CreateManyUsersInput | like_res_2CreateManyUsersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ordersCreateWithoutUsersInput = {
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
+    food?: foodCreateNestedOneWithoutOrdersInput
+  }
+
+  export type ordersUncheckedCreateWithoutUsersInput = {
+    orderId?: number
+    foodId?: number | null
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
+  }
+
+  export type ordersCreateOrConnectWithoutUsersInput = {
+    where: ordersWhereUniqueInput
+    create: XOR<ordersCreateWithoutUsersInput, ordersUncheckedCreateWithoutUsersInput>
+  }
+
+  export type ordersCreateManyUsersInputEnvelope = {
+    data: ordersCreateManyUsersInput | ordersCreateManyUsersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type rate_resCreateWithoutUsersInput = {
+    amount?: number | null
+    daterate?: Date | string | null
+    restaurant: restaurantCreateNestedOneWithoutRate_resInput
+  }
+
+  export type rate_resUncheckedCreateWithoutUsersInput = {
+    resId: number
+    amount?: number | null
+    daterate?: Date | string | null
+  }
+
+  export type rate_resCreateOrConnectWithoutUsersInput = {
+    where: rate_resWhereUniqueInput
+    create: XOR<rate_resCreateWithoutUsersInput, rate_resUncheckedCreateWithoutUsersInput>
+  }
+
+  export type rate_resCreateManyUsersInputEnvelope = {
+    data: rate_resCreateManyUsersInput | rate_resCreateManyUsersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type like_resUpsertWithWhereUniqueWithoutUsersInput = {
+    where: like_resWhereUniqueInput
+    update: XOR<like_resUpdateWithoutUsersInput, like_resUncheckedUpdateWithoutUsersInput>
+    create: XOR<like_resCreateWithoutUsersInput, like_resUncheckedCreateWithoutUsersInput>
+  }
+
+  export type like_resUpdateWithWhereUniqueWithoutUsersInput = {
+    where: like_resWhereUniqueInput
+    data: XOR<like_resUpdateWithoutUsersInput, like_resUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type like_resUpdateManyWithWhereWithoutUsersInput = {
+    where: like_resScalarWhereInput
+    data: XOR<like_resUpdateManyMutationInput, like_resUncheckedUpdateManyWithoutUsersInput>
+  }
+
+  export type like_res_2UpsertWithWhereUniqueWithoutUsersInput = {
+    where: like_res_2WhereUniqueInput
+    update: XOR<like_res_2UpdateWithoutUsersInput, like_res_2UncheckedUpdateWithoutUsersInput>
+    create: XOR<like_res_2CreateWithoutUsersInput, like_res_2UncheckedCreateWithoutUsersInput>
+  }
+
+  export type like_res_2UpdateWithWhereUniqueWithoutUsersInput = {
+    where: like_res_2WhereUniqueInput
+    data: XOR<like_res_2UpdateWithoutUsersInput, like_res_2UncheckedUpdateWithoutUsersInput>
+  }
+
+  export type like_res_2UpdateManyWithWhereWithoutUsersInput = {
+    where: like_res_2ScalarWhereInput
+    data: XOR<like_res_2UpdateManyMutationInput, like_res_2UncheckedUpdateManyWithoutUsersInput>
+  }
+
+  export type ordersUpsertWithWhereUniqueWithoutUsersInput = {
+    where: ordersWhereUniqueInput
+    update: XOR<ordersUpdateWithoutUsersInput, ordersUncheckedUpdateWithoutUsersInput>
+    create: XOR<ordersCreateWithoutUsersInput, ordersUncheckedCreateWithoutUsersInput>
+  }
+
+  export type ordersUpdateWithWhereUniqueWithoutUsersInput = {
+    where: ordersWhereUniqueInput
+    data: XOR<ordersUpdateWithoutUsersInput, ordersUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type ordersUpdateManyWithWhereWithoutUsersInput = {
+    where: ordersScalarWhereInput
+    data: XOR<ordersUpdateManyMutationInput, ordersUncheckedUpdateManyWithoutUsersInput>
+  }
+
+  export type rate_resUpsertWithWhereUniqueWithoutUsersInput = {
+    where: rate_resWhereUniqueInput
+    update: XOR<rate_resUpdateWithoutUsersInput, rate_resUncheckedUpdateWithoutUsersInput>
+    create: XOR<rate_resCreateWithoutUsersInput, rate_resUncheckedCreateWithoutUsersInput>
+  }
+
+  export type rate_resUpdateWithWhereUniqueWithoutUsersInput = {
+    where: rate_resWhereUniqueInput
+    data: XOR<rate_resUpdateWithoutUsersInput, rate_resUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type rate_resUpdateManyWithWhereWithoutUsersInput = {
+    where: rate_resScalarWhereInput
+    data: XOR<rate_resUpdateManyMutationInput, rate_resUncheckedUpdateManyWithoutUsersInput>
+  }
+
+  export type usersCreateWithoutOrdersInput = {
+    fullname?: string | null
+    email?: string | null
+    password?: string | null
+    like_res?: like_resCreateNestedManyWithoutUsersInput
+    like_res_2?: like_res_2CreateNestedManyWithoutUsersInput
+    rate_res?: rate_resCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutOrdersInput = {
+    userId?: number
+    fullname?: string | null
+    email?: string | null
+    password?: string | null
+    like_res?: like_resUncheckedCreateNestedManyWithoutUsersInput
+    like_res_2?: like_res_2UncheckedCreateNestedManyWithoutUsersInput
+    rate_res?: rate_resUncheckedCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersCreateOrConnectWithoutOrdersInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutOrdersInput, usersUncheckedCreateWithoutOrdersInput>
+  }
+
+  export type foodCreateWithoutOrdersInput = {
+    foodname?: string | null
+    image?: string | null
+    price?: number | null
+    desc?: string | null
+    food_type?: food_typeCreateNestedOneWithoutFoodInput
+    sub_food?: sub_foodCreateNestedManyWithoutFoodInput
+  }
+
+  export type foodUncheckedCreateWithoutOrdersInput = {
+    foodId?: number
+    foodname?: string | null
+    image?: string | null
+    price?: number | null
+    desc?: string | null
+    typeId?: number | null
+    sub_food?: sub_foodUncheckedCreateNestedManyWithoutFoodInput
+  }
+
+  export type foodCreateOrConnectWithoutOrdersInput = {
+    where: foodWhereUniqueInput
+    create: XOR<foodCreateWithoutOrdersInput, foodUncheckedCreateWithoutOrdersInput>
+  }
+
+  export type usersUpsertWithoutOrdersInput = {
+    update: XOR<usersUpdateWithoutOrdersInput, usersUncheckedUpdateWithoutOrdersInput>
+    create: XOR<usersCreateWithoutOrdersInput, usersUncheckedCreateWithoutOrdersInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutOrdersInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutOrdersInput, usersUncheckedUpdateWithoutOrdersInput>
+  }
+
+  export type usersUpdateWithoutOrdersInput = {
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUpdateManyWithoutUsersNestedInput
+    like_res_2?: like_res_2UpdateManyWithoutUsersNestedInput
+    rate_res?: rate_resUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutOrdersInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUncheckedUpdateManyWithoutUsersNestedInput
+    like_res_2?: like_res_2UncheckedUpdateManyWithoutUsersNestedInput
+    rate_res?: rate_resUncheckedUpdateManyWithoutUsersNestedInput
+  }
+
+  export type foodUpsertWithoutOrdersInput = {
+    update: XOR<foodUpdateWithoutOrdersInput, foodUncheckedUpdateWithoutOrdersInput>
+    create: XOR<foodCreateWithoutOrdersInput, foodUncheckedCreateWithoutOrdersInput>
+    where?: foodWhereInput
+  }
+
+  export type foodUpdateToOneWithWhereWithoutOrdersInput = {
+    where?: foodWhereInput
+    data: XOR<foodUpdateWithoutOrdersInput, foodUncheckedUpdateWithoutOrdersInput>
+  }
+
+  export type foodUpdateWithoutOrdersInput = {
+    foodname?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: NullableFloatFieldUpdateOperationsInput | number | null
+    desc?: NullableStringFieldUpdateOperationsInput | string | null
+    food_type?: food_typeUpdateOneWithoutFoodNestedInput
+    sub_food?: sub_foodUpdateManyWithoutFoodNestedInput
+  }
+
+  export type foodUncheckedUpdateWithoutOrdersInput = {
+    foodId?: IntFieldUpdateOperationsInput | number
+    foodname?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    price?: NullableFloatFieldUpdateOperationsInput | number | null
+    desc?: NullableStringFieldUpdateOperationsInput | string | null
+    typeId?: NullableIntFieldUpdateOperationsInput | number | null
+    sub_food?: sub_foodUncheckedUpdateManyWithoutFoodNestedInput
+  }
+
+  export type usersCreateWithoutLike_res_2Input = {
+    fullname?: string | null
+    email?: string | null
+    password?: string | null
+    like_res?: like_resCreateNestedManyWithoutUsersInput
+    orders?: ordersCreateNestedManyWithoutUsersInput
+    rate_res?: rate_resCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutLike_res_2Input = {
+    userId?: number
+    fullname?: string | null
+    email?: string | null
+    password?: string | null
+    like_res?: like_resUncheckedCreateNestedManyWithoutUsersInput
+    orders?: ordersUncheckedCreateNestedManyWithoutUsersInput
+    rate_res?: rate_resUncheckedCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersCreateOrConnectWithoutLike_res_2Input = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutLike_res_2Input, usersUncheckedCreateWithoutLike_res_2Input>
+  }
+
+  export type restaurantCreateWithoutLike_res_2Input = {
+    resname?: string | null
+    image?: string | null
+    desc?: string | null
+    like_res?: like_resCreateNestedManyWithoutRestaurantInput
+    rate_res?: rate_resCreateNestedManyWithoutRestaurantInput
+  }
+
+  export type restaurantUncheckedCreateWithoutLike_res_2Input = {
+    resId?: number
+    resname?: string | null
+    image?: string | null
+    desc?: string | null
+    like_res?: like_resUncheckedCreateNestedManyWithoutRestaurantInput
+    rate_res?: rate_resUncheckedCreateNestedManyWithoutRestaurantInput
+  }
+
+  export type restaurantCreateOrConnectWithoutLike_res_2Input = {
+    where: restaurantWhereUniqueInput
+    create: XOR<restaurantCreateWithoutLike_res_2Input, restaurantUncheckedCreateWithoutLike_res_2Input>
+  }
+
+  export type usersUpsertWithoutLike_res_2Input = {
+    update: XOR<usersUpdateWithoutLike_res_2Input, usersUncheckedUpdateWithoutLike_res_2Input>
+    create: XOR<usersCreateWithoutLike_res_2Input, usersUncheckedCreateWithoutLike_res_2Input>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutLike_res_2Input = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutLike_res_2Input, usersUncheckedUpdateWithoutLike_res_2Input>
+  }
+
+  export type usersUpdateWithoutLike_res_2Input = {
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUpdateManyWithoutUsersNestedInput
+    orders?: ordersUpdateManyWithoutUsersNestedInput
+    rate_res?: rate_resUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutLike_res_2Input = {
+    userId?: IntFieldUpdateOperationsInput | number
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUncheckedUpdateManyWithoutUsersNestedInput
+    orders?: ordersUncheckedUpdateManyWithoutUsersNestedInput
+    rate_res?: rate_resUncheckedUpdateManyWithoutUsersNestedInput
+  }
+
+  export type restaurantUpsertWithoutLike_res_2Input = {
+    update: XOR<restaurantUpdateWithoutLike_res_2Input, restaurantUncheckedUpdateWithoutLike_res_2Input>
+    create: XOR<restaurantCreateWithoutLike_res_2Input, restaurantUncheckedCreateWithoutLike_res_2Input>
+    where?: restaurantWhereInput
+  }
+
+  export type restaurantUpdateToOneWithWhereWithoutLike_res_2Input = {
+    where?: restaurantWhereInput
+    data: XOR<restaurantUpdateWithoutLike_res_2Input, restaurantUncheckedUpdateWithoutLike_res_2Input>
+  }
+
+  export type restaurantUpdateWithoutLike_res_2Input = {
+    resname?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    desc?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUpdateManyWithoutRestaurantNestedInput
+    rate_res?: rate_resUpdateManyWithoutRestaurantNestedInput
+  }
+
+  export type restaurantUncheckedUpdateWithoutLike_res_2Input = {
+    resId?: IntFieldUpdateOperationsInput | number
+    resname?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    desc?: NullableStringFieldUpdateOperationsInput | string | null
+    like_res?: like_resUncheckedUpdateManyWithoutRestaurantNestedInput
+    rate_res?: rate_resUncheckedUpdateManyWithoutRestaurantNestedInput
+  }
+
+  export type ordersCreateManyFoodInput = {
+    orderId?: number
+    userId?: number | null
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
   }
 
   export type sub_foodCreateManyFoodInput = {
     subId?: number
     subname?: string | null
     subprice?: number | null
+  }
+
+  export type ordersUpdateWithoutFoodInput = {
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+    users?: usersUpdateOneWithoutOrdersNestedInput
+  }
+
+  export type ordersUncheckedUpdateWithoutFoodInput = {
+    orderId?: IntFieldUpdateOperationsInput | number
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ordersUncheckedUpdateManyWithoutFoodInput = {
+    orderId?: IntFieldUpdateOperationsInput | number
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type sub_foodUpdateWithoutFoodInput = {
@@ -7498,6 +14362,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
+    orders?: ordersUpdateManyWithoutFoodNestedInput
     sub_food?: sub_foodUpdateManyWithoutFoodNestedInput
   }
 
@@ -7507,6 +14372,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
+    orders?: ordersUncheckedUpdateManyWithoutFoodNestedInput
     sub_food?: sub_foodUncheckedUpdateManyWithoutFoodNestedInput
   }
 
@@ -7516,6 +14382,187 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     desc?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type like_resCreateManyRestaurantInput = {
+    userId: number
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_res_2CreateManyRestaurantInput = {
+    id?: number
+    userId?: number | null
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type rate_resCreateManyRestaurantInput = {
+    userId: number
+    amount?: number | null
+    daterate?: Date | string | null
+  }
+
+  export type like_resUpdateWithoutRestaurantInput = {
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    users?: usersUpdateOneRequiredWithoutLike_resNestedInput
+  }
+
+  export type like_resUncheckedUpdateWithoutRestaurantInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_resUncheckedUpdateManyWithoutRestaurantInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_res_2UpdateWithoutRestaurantInput = {
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    users?: usersUpdateOneWithoutLike_res_2NestedInput
+  }
+
+  export type like_res_2UncheckedUpdateWithoutRestaurantInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_res_2UncheckedUpdateManyWithoutRestaurantInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: NullableIntFieldUpdateOperationsInput | number | null
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type rate_resUpdateWithoutRestaurantInput = {
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    users?: usersUpdateOneRequiredWithoutRate_resNestedInput
+  }
+
+  export type rate_resUncheckedUpdateWithoutRestaurantInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type rate_resUncheckedUpdateManyWithoutRestaurantInput = {
+    userId?: IntFieldUpdateOperationsInput | number
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type like_resCreateManyUsersInput = {
+    resId: number
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type like_res_2CreateManyUsersInput = {
+    id?: number
+    resId?: number | null
+    datelike?: Date | string | null
+    isLike?: boolean | null
+  }
+
+  export type ordersCreateManyUsersInput = {
+    orderId?: number
+    foodId?: number | null
+    amount?: number | null
+    code?: string | null
+    arrsubId?: string | null
+  }
+
+  export type rate_resCreateManyUsersInput = {
+    resId: number
+    amount?: number | null
+    daterate?: Date | string | null
+  }
+
+  export type like_resUpdateWithoutUsersInput = {
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    restaurant?: restaurantUpdateOneRequiredWithoutLike_resNestedInput
+  }
+
+  export type like_resUncheckedUpdateWithoutUsersInput = {
+    resId?: IntFieldUpdateOperationsInput | number
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_resUncheckedUpdateManyWithoutUsersInput = {
+    resId?: IntFieldUpdateOperationsInput | number
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_res_2UpdateWithoutUsersInput = {
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    restaurant?: restaurantUpdateOneWithoutLike_res_2NestedInput
+  }
+
+  export type like_res_2UncheckedUpdateWithoutUsersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    resId?: NullableIntFieldUpdateOperationsInput | number | null
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type like_res_2UncheckedUpdateManyWithoutUsersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    resId?: NullableIntFieldUpdateOperationsInput | number | null
+    datelike?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isLike?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type ordersUpdateWithoutUsersInput = {
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+    food?: foodUpdateOneWithoutOrdersNestedInput
+  }
+
+  export type ordersUncheckedUpdateWithoutUsersInput = {
+    orderId?: IntFieldUpdateOperationsInput | number
+    foodId?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ordersUncheckedUpdateManyWithoutUsersInput = {
+    orderId?: IntFieldUpdateOperationsInput | number
+    foodId?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    arrsubId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type rate_resUpdateWithoutUsersInput = {
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    restaurant?: restaurantUpdateOneRequiredWithoutRate_resNestedInput
+  }
+
+  export type rate_resUncheckedUpdateWithoutUsersInput = {
+    resId?: IntFieldUpdateOperationsInput | number
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type rate_resUncheckedUpdateManyWithoutUsersInput = {
+    resId?: IntFieldUpdateOperationsInput | number
+    amount?: NullableIntFieldUpdateOperationsInput | number | null
+    daterate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
 

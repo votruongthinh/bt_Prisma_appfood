@@ -4,8 +4,8 @@ import { PrismaClient } from "./generated/prisma/index.js";
 import { DATABASE_URL } from "../constant/app.constant.js";
 
 const url = new URL(DATABASE_URL);
- console.log({ url, databaseName: url.pathname.substring(1) });
-console.log("hello");
+// console.log({ url, databaseName: url.pathname.substring(1) });
+//console.log("hello");
 const adapter = new PrismaMariaDb({
     host: url.hostname,
     user: url.username,
