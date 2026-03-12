@@ -1,12 +1,12 @@
-import{ orderService } from "../services/order.service.js";
+import { orderService } from "../services/order.service.js";
 import { responseSuccess } from "../common/helpers/response.helper.js";
 export const orderController = {
-    async createOrder(req,res){
-        const result = await orderService.createOrder(req);
-        const response = responseSuccess(result, "Đặt món thành công");
-        res.status(response.statusCode).json(response);
-    },
-      // Lấy danh sách order theo user
+  async createOrder(req, res) {
+    const result = await orderService.createOrder(req);
+    const response = responseSuccess(result, "Đặt món thành công");
+    res.status(response.statusCode).json(response);
+  },
+  // Lấy danh sách order theo user
   async getOrdersByUser(req, res) {
     const { userId } = req.params;
 
@@ -64,4 +64,5 @@ export const orderController = {
     const response = responseSuccess(null, "Xoá order thành công");
     res.status(response.statusCode).json(response);
   },
-}
+  
+};
